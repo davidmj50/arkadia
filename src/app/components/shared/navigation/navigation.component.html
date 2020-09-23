@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container container-fluid">
+            <a class="navbar-brand" href="/">ARKADIA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" ><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['Products']" routerLinkActive="router-link-active" ><i class="fas fa-mobile-alt"></i> Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['about']" routerLinkActive="router-link-active" ><i class="fas fa-building"></i> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/contact']" routerLinkActive="router-link-active" ><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+    </div>
+</nav>
