@@ -1,4 +1,104 @@
-<footer class="bg-light text-center p-2">
-  <p>Todos los derechos reservados</p>
-  <p class="">&copy; {{date}}</p>
+<!-- Footer -->
+<footer class="page-footer font-small stylish-color-dark pt-4 bg-dark text-white">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto text-center">
+
+        <!-- Content -->
+        <p class="h3"><i class="fas fa-home"></i></p>
+        <p class="h5"><a  class="text-white"[routerLink]="['/about']" routerLinkActive="router-link-active" >Sobre nosotros</a></p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto text-center">
+          <p class="h3"><i class="fas fa-envelope"></i></p>
+          <p class="h5"><a class="text-white" [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contactenos</a></p>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto text-center">
+          <p class="h3"><i class="fas fa-phone"></i></p>
+          <p class="h5"><a class="text-white" [routerLink]="['/contact']" routerLinkActive="router-link-active" >Venta telefonica</a></p>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <hr  style="border: 1px solid white;">
+
+  <!-- Call to action -->
+  <ul class="list-unstyled list-inline text-center py-2">
+    <li class="list-inline-item">
+      <a [routerLink]="['/register']" routerLinkActive="router-link-active"  class="btn btn-success btn-rounded">Registrese</a>
+    </li>
+    <li class="list-inline-item">
+      <a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="btn btn-danger btn-rounded">Ingresar</a>
+    </li>
+  </ul>
+  <!-- Call to action -->
+
+  <hr style="border: 1px solid white;">
+
+  <!-- Social buttons -->
+  <ul class="list-unstyled list-inline text-center">
+    <li class="list-inline-item">
+      <a class="btn-floating btn-fb mx-1 text-white">
+        <i class="fab fa-facebook-f"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-tw mx-1 text-white">
+        <i class="fab fa-twitter"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-gplus mx-1 text-white">
+        <i class="fab fa-google-plus-g"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-li mx-1 text-white">
+        <i class="fab fa-linkedin-in"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-dribbble mx-1 text-white">
+        <i class="fab fa-dribbble"> </i>
+      </a>
+    </li>
+  </ul>
+  <!-- Social buttons -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright
+    <a href="/" class="text-white h5"> ARKADIA</a>
+  </div>
+  <!-- Copyright -->
+
 </footer>
+<!-- Footer -->
