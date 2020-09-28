@@ -22,7 +22,7 @@ export class NavigationComponent implements OnInit, AfterViewInit {
     // @HostListener('scroll', ['$event']) // for scroll events of the current element
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event) {
-    console.log(window.pageYOffset);
+    // console.log(window.pageYOffset);
     if (window.pageYOffset > 65) {
       this.navBar.nativeElement.style.position = "fixed"
       this.navBar.nativeElement.style.top = "0";
