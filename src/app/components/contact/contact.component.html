@@ -1,23 +1,23 @@
-<app-navigation></app-navigation>
-
 <div class="container p-5">
   <div class="row">
       <div class="col-md-4 offset-md-4">
           <div class="card animate__animated animate__flipInY">
               <div class="card-header bg-dark text-white text-center">
-                  <h3>Contact me</h3>
+                  <h3>Contacto</h3>
               </div>
               <div class="card-body">
-                  <form action="">
+                  <form [formGroup]="contactForm" id="frmContactForm">
                       <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Email" name="" id="">
+                          <input formControlName="email" type="text" class="form-control" placeholder="Email" name="" id="emailMessage" required>
                       </div>
                       <div class="form-group">
-                          <textarea class="form-control" placeholder="Message" name="" id="" cols="30" rows="10"></textarea>
+                          <textarea formControlName="message" class="form-control" placeholder="Mensaje" required name="" id="MessageResume" cols="30" rows="10"></textarea>
                       </div>
                       <div class="form-group">
-                          <button class="btn btn-primary btn-block">
-                              Send message
+                          <button class="btn btn-primary btn-block" 
+                          (click)="enviarMensaje()"
+                          onclick="sendMessage(document.getElementById('emailMessage').value, document.getElementById('MessageResume').value)">
+                              Enviar mensaje
                           </button>
                       </div>
                   </form>
@@ -26,5 +26,3 @@
       </div>
   </div>
 </div>
-
-<app-footer></app-footer>
