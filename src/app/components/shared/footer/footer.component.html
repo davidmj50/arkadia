@@ -4,15 +4,36 @@
   <!-- Footer Links -->
   <div class="container text-center text-md-left">
 
-    <!-- Grid row -->
+    <!-- Links -->
+    <h4 class="text-center">Nuestra empresa</h4>
     <div class="row">
+
+      <div class="col-md-6">
+        <ul class="list-unstyled list-inline text-center mt-3">
+          <li><a href="" class="text-white">Home</a></li>
+          <li><a href="" class="text-white">Contactenos</a></li>
+
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-unstyled list-inline text-center mt-3">
+          <li><a href="" class="text-white">Productos</a></li>
+          <li><a href="" class="text-white">Sobre nosotros</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Links -->
+    <hr>
+    <!-- Grid row -->
+    <div class="row mt-3">
 
       <!-- Grid column -->
       <div class="col-md-4 mx-auto text-center">
 
         <!-- Content -->
         <p class="h3"><i class="fas fa-home"></i></p>
-        <p class="h5"><a  class="text-white"[routerLink]="['/about']" routerLinkActive="router-link-active" >Sobre nosotros</a></p>
+        <p class="h5"><a class="text-white" [routerLink]="['/about']" routerLinkActive="router-link-active">Sobre
+            nosotros</a></p>
 
       </div>
       <!-- Grid column -->
@@ -20,18 +41,20 @@
       <hr class="clearfix w-100 d-md-none">
 
       <!-- Grid column -->
-      <div class="col-md-3 mx-auto text-center">
-          <p class="h3"><i class="fas fa-envelope"></i></p>
-          <p class="h5"><a class="text-white" [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contactenos</a></p>
+      <div class="col-md-4 mx-auto text-center">
+        <p class="h3"><i class="fas fa-envelope"></i></p>
+        <p class="h5"><a class="text-white" [routerLink]="['/contact']"
+            routerLinkActive="router-link-active">Contactenos</a></p>
       </div>
       <!-- Grid column -->
 
       <hr class="clearfix w-100 d-md-none">
 
       <!-- Grid column -->
-      <div class="col-md-3 mx-auto text-center">
-          <p class="h3"><i class="fas fa-phone"></i></p>
-          <p class="h5"><a class="text-white" [routerLink]="['/contact']" routerLinkActive="router-link-active" >Venta telefonica</a></p>
+      <div class="col-md-4 mx-auto text-center">
+        <p class="h3"><i class="fas fa-phone"></i></p>
+        <p class="h5"><a class="text-white" [routerLink]="['/contact']" routerLinkActive="router-link-active">Venta
+            telefonica</a></p>
       </div>
       <!-- Grid column -->
 
@@ -45,60 +68,44 @@
 
     </div>
     <!-- Grid row -->
+    <hr>
+    <!-- Social buttons -->
+    <ul class="list-unstyled list-inline text-center mt-3">
+      <li class="list-inline-item">
+        <a class="btn-floating btn-fb mx-1 text-white">
+          <i class="fab fa-facebook-f"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-tw mx-1 text-white">
+          <i class="fab fa-twitter"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-gplus mx-1 text-white">
+          <i class="fab fa-google-plus-g"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-li mx-1 text-white">
+          <i class="fab fa-linkedin-in"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-dribbble mx-1 text-white">
+          <i class="fab fa-dribbble"> </i>
+        </a>
+      </li>
+    </ul>
+    <!-- Social buttons -->
+    <hr>
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright
+      <a href="/" class="text-white h5"> ARKADIA</a>
+    </div>
+    <!-- Copyright -->
 
   </div>
   <!-- Footer Links -->
-
-  <hr  style="border: 1px solid white;">
-
-  <!-- Call to action -->
-  <ul class="list-unstyled list-inline text-center py-2">
-    <li class="list-inline-item">
-      <a [routerLink]="['/register']" routerLinkActive="router-link-active"  class="btn btn-success btn-rounded">Registrese</a>
-    </li>
-    <li class="list-inline-item">
-      <a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="btn btn-danger btn-rounded">Ingresar</a>
-    </li>
-  </ul>
-  <!-- Call to action -->
-
-  <hr style="border: 1px solid white;">
-
-  <!-- Social buttons -->
-  <ul class="list-unstyled list-inline text-center">
-    <li class="list-inline-item">
-      <a class="btn-floating btn-fb mx-1 text-white">
-        <i class="fab fa-facebook-f"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-tw mx-1 text-white">
-        <i class="fab fa-twitter"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-gplus mx-1 text-white">
-        <i class="fab fa-google-plus-g"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-li mx-1 text-white">
-        <i class="fab fa-linkedin-in"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-dribbble mx-1 text-white">
-        <i class="fab fa-dribbble"> </i>
-      </a>
-    </li>
-  </ul>
-  <!-- Social buttons -->
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright
-    <a href="/" class="text-white h5"> ARKADIA</a>
-  </div>
-  <!-- Copyright -->
-
 </footer>
 <!-- Footer -->
