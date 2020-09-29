@@ -11,7 +11,15 @@ import { AboutComponent } from './components/about/about.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProductsComponent } from './components/products/products.component';
+
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+
+import { NofoundComponent } from './components/nofound/nofound.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 
 @NgModule({
@@ -25,11 +33,20 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     RegisterComponent,
     LoginComponent,
     ProductsComponent,
+
     DashboardComponent,
+
+    NofoundComponent,
+    ProductDetailComponent,
+    ShoppingCartComponent
+
   ],
   imports: [
     BrowserModule,
-    APP_ROUTES
+    FormsModule,
+    ReactiveFormsModule,
+    APP_ROUTES,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

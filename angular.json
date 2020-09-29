@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "arkadiaWeb"
+  "defaultProject": "arkadiaWeb",
+  "cli": {
+    "analytics": "212797e3-70cb-49e7-8fe6-603c59a22263"
+  }
 }

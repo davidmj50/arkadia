@@ -1,0 +1,19 @@
+.card-product {
+    max-height: 25rem;
+}
+
+.card-product img {
+    max-height: 10rem;
+}
+
+.prize {
+    color: red;
+}
+
+.products {
+    border-bottom: 1px solid #eee;
+}
+
+.icon-cart {
+    color: green;
+}

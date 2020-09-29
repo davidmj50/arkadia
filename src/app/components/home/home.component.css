@@ -1,3 +1,7 @@
 .carousel-inner {
     max-height: 350px;
 }
+
+.card {
+    cursor: pointer;
+}
