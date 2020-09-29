@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Inject, HostListener } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 
+declare const $ : any;
+
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',

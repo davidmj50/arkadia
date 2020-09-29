@@ -1,0 +1,89 @@
+<!-- shopping cart -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myLargeModalLabel">Tus productos</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body overflow-auto">
+          <div class="card-product">
+            <div class="row products mb-3">
+              <div class="col-md-4">
+                <div class="card bg-green">
+                  <img height="auto" src="http://placehold.it/700x400" alt="Image">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione ut vero ab, doloribus voluptas,
+                  laboriosam ipsum nesciunt officiis nostrum, et odit? Nulla.</p>
+                  <div class="form-group row">
+                      <label for="" class="col-sm-2 col-form-label">Cantidad: </label>
+                      <select class="col-sm-2 form-control" name="" id="">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                      </select>
+                      <span class="icon-cart ml-3 mt-1"><i class="fas fa-trash"></i> Eliminar</span>
+                  </div>
+                  
+                  <span class="prize"><strong>{{100 | number}} pts</strong></span>
+              </div>
+            </div>
+            <div class="row products mb-3">
+              <div class="col-md-4">
+                <div class="card bg-green">
+                  <img height="auto" src="http://placehold.it/700x400" alt="Image">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione ut vero ab, doloribus voluptas,
+                  laboriosam ipsum nesciunt officiis nostrum, et odit? Nulla.</p>
+                  <div class="form-group row">
+                      <label for="" class="col-sm-2 col-form-label">Cantidad: </label>
+                      <select class="col-sm-2 form-control" name="" id="">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                      </select>
+                  </div>
+                  
+                  <span class="prize"><strong>{{80 | number}} pts</strong></span>
+              </div>
+            </div>
+            <div class="row products mb-3">
+                <div class="col-md-4">
+                  <div class="card bg-green">
+                    <img height="auto" src="http://placehold.it/700x400" alt="Image">
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione ut vero ab, doloribus voluptas,
+                    laboriosam ipsum nesciunt officiis nostrum, et odit? Nulla.</p>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Cantidad: </label>
+                        <select class="col-sm-2 form-control" name="" id="">
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                        </select>
+                    </div>
+                    
+                    <span class="prize"><strong>{{1200 | number}} pts</strong></span>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <span class="prize mr-auto"><strong>Total:  {{4500 | number}} pts</strong></span>
+            <button type="button" class="btn btn-outline-success">Ver Carrito</button>
+            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Ir a pagar</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
