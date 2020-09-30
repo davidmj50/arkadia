@@ -24,7 +24,6 @@
     "core-js": "^2.5.4",
     "mysql": "^2.18.1",
     "rxjs": "~6.2.0",
-    "sql": "^0.78.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
