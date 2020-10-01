@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,10 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     RegisterComponent,
     LoginComponent,
     ProductsComponent,
-    NofoundComponent
+    NofoundComponent,
     ProductDetailComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
