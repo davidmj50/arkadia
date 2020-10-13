@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Inject, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Inject, HostListener, AfterContentChecked } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
+import { CartService } from 'src/app/services/cart.service';
 
 declare const $ : any;
 
@@ -8,17 +9,27 @@ declare const $ : any;
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit, AfterViewInit {
+export class NavigationComponent implements OnInit, AfterViewInit, AfterContentChecked {
   
+  public numProducts: number = 0;
+
+  ngAfterContentChecked(): void {
+    if(this._cartService.getProductsCart()) {
+      this.numProducts = this._cartService.getProductsCart().length;
+    }
+  }
+  
+  
+
   ngAfterViewInit(): void {
     this.navBar.nativeElement.innerHTML;
-    
   }
 
   @ViewChild('navFixed') navBar: ElementRef;
 
   constructor(
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private _cartService: CartService
     ) { }
 
     // @HostListener('scroll', ['$event']) // for scroll events of the current element
