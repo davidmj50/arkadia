@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
-    <div class="container container-fluid">
+    <div class="container container-fluid animate__animated animate__fadeIn">
             <a class="navbar-brand" href="/">ARKADIA</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,10 +8,10 @@
           
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" ><i class="fas fa-home"></i> Inicio</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" [routerLink]="['/products']" routerLinkActive="router-link-active" ><i class="fas fa-mobile-alt"></i> Nuestros productos</a>
                     </li>
                     <li class="nav-item">
@@ -23,7 +23,7 @@
                 </ul>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+                    <button class="btn btn-outline-info my-2 my-sm-0" style="color: #ffffff;" type="submit">Buscar</button>
                 </form>
             </div>
     </div>
@@ -63,4 +63,4 @@
     </section> <!-- header-main .// -->
 </header>
 
-<app-shopping-cart></app-shopping-cart>
+<app-modal-shopping-cart></app-modal-shopping-cart>

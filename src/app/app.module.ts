@@ -17,6 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ModalShoppingCartComponent } from './components/shared/modal-shopping-cart/modal-shopping-cart.component';
+import { LoaderComponent } from './components/shared/loader/loader.component';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -32,14 +35,18 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     NofoundComponent,
     ProductDetailComponent,
     ShoppingCartComponent,
-    DashboardComponent
+    DashboardComponent,
+    ModalShoppingCartComponent,
+    ModalShoppingCartComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     APP_ROUTES,
-    HttpClientModule
+    HttpClientModule,
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ContactServiceService } from 'src/app/services/contact-service.service';
 import { finalize } from 'rxjs/operators';
+import { ContactService } from 'src/app/services/Impl/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -14,7 +14,7 @@ export class ContactComponent implements OnInit {
 
   constructor
   (
-    private contactService: ContactServiceService
+    private contactService: ContactService
   ) 
   { 
     this.contactForm = new FormGroup({

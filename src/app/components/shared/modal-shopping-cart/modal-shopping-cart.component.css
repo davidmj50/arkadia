@@ -1,0 +1,23 @@
+.modal-body {
+    max-height: 20rem !important;
+}
+
+.card-product img {
+    max-height: 10rem;
+}
+
+.prize {
+    color: red;
+}
+
+.products {
+    border-bottom: 1px solid #eee;
+}
+
+.icon-cart {
+    color: green;
+    cursor: pointer;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 5px;
+}

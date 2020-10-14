@@ -1,17 +1,9 @@
-.card-product {
-    max-height: 25rem;
+.card {
+    width: 100%;
 }
 
-.card-product img {
-    max-height: 10rem;
-}
-
-.prize {
-    color: red;
-}
-
-.products {
-    border-bottom: 1px solid #eee;
+img {
+    width: 100%;
 }
 
 .icon-cart {
@@ -20,4 +12,8 @@
     border: 1px solid green;
     border-radius: 5px;
     padding: 5px;
+}
+
+.summary-price {
+    font-size: 1.125rem;
 }

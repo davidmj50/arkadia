@@ -1,5 +1,20 @@
 <app-navigation></app-navigation>
-<p>
-  products works!
-</p>
+<div class="container mt-3 mb-3">
+  <h2 class="d-block">Productos - Categoria {{filtro}}</h2>
+  <hr>
+  <div class="row animate__animated animate__fadeIn">
+      <div class="col-md-4">
+          <div class="card text-center">
+              <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                  {{game.title}}
+              </div>
+              <img [src]="game.image" class="card-img-top" alt="">
+              <div class="card-body">
+                  <p>{{game.description}}</p>
+                  <a class="btn btn-outline-info btn-block"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 <app-footer></app-footer>
