@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { NofoundComponent } from './components/nofound/nofound.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent  },
@@ -19,6 +20,7 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent  },
     { path: 'nofound', component: NofoundComponent  },
     { path: 'dashboard', component: DashboardComponent  },
+    { path: 'cartShopping', component: ShoppingCartComponent  },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];

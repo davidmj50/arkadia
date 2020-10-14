@@ -2,3 +2,15 @@
 body {
     font-family: 'Roboto' !important;
 }
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-red {
+    color: red;
+}
+
+.limitado{
+    min-height: 60px;
+}

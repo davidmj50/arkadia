@@ -23,6 +23,8 @@
     "boostrap": "^2.0.0",
     "core-js": "^2.5.4",
     "mysql": "^2.18.1",
+    "primeicons": "^4.0.0",
+    "primeng": "^10.0.3",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
