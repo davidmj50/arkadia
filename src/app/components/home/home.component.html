@@ -1,6 +1,7 @@
+<app-loader [loading]="false"></app-loader>
 <app-navigation></app-navigation>
 <!-- Slide -->
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide animate__animated animate__fadeIn" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -70,24 +71,19 @@
         </div> -->
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of listProducts">
+            <div class="col-lg-4 col-md-6 mb-4  animate__animated animate__fadeIn" *ngFor="let item of listProducts">
                 <div class="card h-100">
                     <a><img class="card-img-top" [src]="item.img" alt="" (click)="viewProduct(item)"></a>
                     <div class="card-body">
-                        <h4 class="card-title">
+                        <p class="text-bold card-title">
                             <a>{{item.name}}</a>
-                        </h4>
-                        <!-- cart -->
-                        <div class="widget-header" (click)="addCart(item)">
-                            <a class="icon icon-sm rounded-circle border"><i
-                                    class="fa fa-shopping-cart"></i></a>
-                            <span class="badge badge-pill badge-danger notify">+</span>
-                        </div>
-                        <h5>{{item.price | number}}</h5>
-                        <p class="card-text">{{item.description}}</p>
+                        </p>
+                        <span class="text-red d-block text-right"><strong>{{item.price | number}} pts</strong></span>
+                        <hr>
+                        <p class="card-text limitado">{{item.description}}</p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">★ ★ ★ ★ ☆</small>
+                            <a (click)="addCart(item)" class="btn btn-outline-info btn-block"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a>
                     </div>
                 </div>
             </div>
