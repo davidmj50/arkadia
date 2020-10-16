@@ -22,7 +22,7 @@ const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent  },
     { path: 'cartShopping', component: ShoppingCartComponent  },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: '**', redirectTo: 'home', pathMatch: 'full' }
+    { path: '**', redirectTo: 'nofound', pathMatch: 'full' }
 ];
 
 export const APP_ROUTES = RouterModule.forRoot(routes, { useHash: true });
