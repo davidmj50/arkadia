@@ -1,0 +1,25 @@
+<app-loader [loading]="loading"></app-loader>
+<div class="card mt-3">
+  <div class="card-header">
+    <div class="d-flex justify-content-start p-1">
+      <button [routerLink]="['/dashboard/admin/categories']" class="btn btn-primary"><i
+          class="fas fa-arrow-left"></i></button>
+      <h3 class="ml-3">Agregar Categorias</h3>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <form action="" [formGroup]="formCategories" (ngSubmit)="guardar()">
+        <div class="form-group">
+          <label for="name">Categoria</label>
+          <input formControlName="name" type="text" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Descripción</label>
+          <textarea formControlName="description" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="formCategories.invalid">Guardar</button>
+      </form>
+    </div>
+  </div>
+</div>

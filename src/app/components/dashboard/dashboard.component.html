@@ -1,128 +1,38 @@
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<div class="d-flex" id="wrapper">
 
-<!--
-User Profile Sidebar by @keenthemes
-A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
-Licensed under MIT
--->
-
-<div class="container">
-  <div class="row profile">
-    <div class="col-md-3">
-      <div class="profile-sidebar">
-        <!-- SIDEBAR USERPIC -->
-        <div class="profile-userpic">
-          <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg"
-            class="img-responsive" alt="">
-        </div>
-        <!-- END SIDEBAR USERPIC -->
-        <!-- SIDEBAR USER TITLE -->
-        <div class="profile-usertitle">
-          <img src="http://www.joblo.com/newsimages1/logan-x-24-hugh-jackman-villain-thumb.jpg" class="img-circle"
-            width="100px">
-
-          <div class="profile-usertitle-name">
-            DevEswar
-          </div>
-          <div class="profile-usertitle-job">
-            Developer
-          </div>
-        </div>
-        <!-- END SIDEBAR USER TITLE -->
-        <!-- SIDEBAR BUTTONS -->
-        <!--<div class="profile-userbuttons">-->
-        <!--	<button type="button" class="btn btn-success btn-sm">Follow</button>-->
-        <!--	<button type="button" class="btn btn-danger btn-sm">Message</button>-->
-        <!--</div>-->
-        <!-- END SIDEBAR BUTTONS -->
-        <!-- SIDEBAR MENU -->
-        <div class="profile-usermenu">
-          <ul class="nav">
-            <li class="active">
-              <a href="#">
-                <i class="glyphicon glyphicon-home"></i>
-                Home </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="glyphicon glyphicon-user"></i>
-                My Account </a>
-            </li>
-            <li>
-              <a href="#" target="_blank">
-                <i class="glyphicon glyphicon-edit"></i>
-                Account Setting </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="glyphicon glyphicon-ok"></i>
-                Menu</a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="glyphicon glyphicon-flag"></i>
-                Help </a>
-            </li>
-          </ul>
-        </div>
-        <!-- END MENU -->
-      </div>
-    </div>
-    <div class="col-md-9">
-      <div class="col-sm-4">
-        <div class="profile-content">
-
-
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="profile-content">
-
-
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="profile-content">
-
-
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="profile-content">
-
-
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="profile-content">
-
-
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="profile-content">
-
-
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="profile-content">
-
-
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="profile-content">
-
-
-        </div>
-      </div>
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">ARKADIA ADMIN</div>
+    <div class="list-group list-group-flush">
+      <a [routerLink]="['/dashboard/admin']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light">Inicio</a>
+      <a [routerLink]="['/dashboard/admin/products']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action bg-light">Productos</a>
+      <a [routerLink]="['/dashboard/admin/categories']" routerLinkActive="router-link-active" href="#" class="list-group-item list-group-item-action bg-light">Categorias</a>
+      <a href="#" class="list-group-item list-group-item-action bg-light">Usuarios</a>
+      <hr>
     </div>
   </div>
-</div>
+  <!-- /#sidebar-wrapper -->
 
-<br>
-<br>
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+      <button class="btn btn-primary" id="menu-toggle">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+</div>

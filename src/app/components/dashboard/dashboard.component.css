@@ -1,111 +1,50 @@
-body {
-    background: #F1F3FA;
-  }
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/templates/simple-sidebar)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
 
-  /* Profile container */
-  .profile {
-    margin: 10px 0;
-  }
+ #wrapper {
+  overflow-x: hidden;
+}
 
-  /* Profile sidebar */
-  .profile-sidebar {
-    padding: 20px 0 10px 0;
-    background: #fff;
-    box-shadow:1px 1px 10px rgba(0,0,0,0.3)
-  }
+#sidebar-wrapper {
+min-height: 100vh;
+margin-left: -15rem;
+-webkit-transition: margin .25s ease-out;
+-moz-transition: margin .25s ease-out;
+-o-transition: margin .25s ease-out;
+transition: margin .25s ease-out;
+}
 
-  .profile-userpic img {
-    float: none;
-    margin: 0 auto;
-    width: 50%;
-    height: 50%;
-    -webkit-border-radius: 50% !important;
-    -moz-border-radius: 50% !important;
-    border-radius: 50% !important;
-  }
+#sidebar-wrapper .sidebar-heading {
+padding: 0.875rem 1.25rem;
+font-size: 1.2rem;
+}
 
-  .profile-usertitle {
-    text-align: center;
-    margin-top: 20px;
-  }
+#sidebar-wrapper .list-group {
+width: 15rem;
+}
 
-  .profile-usertitle-name {
-    color: #5a7391;
-    font-size: 16px;
-    font-weight: 600;
-    margin-top:5px;
-    margin-bottom: 7px;
-  }
+#page-content-wrapper {
+min-width: 100vw;
+}
 
-  .profile-usertitle-job {
-    text-transform: uppercase;
-    color: #5b9bd1;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 15px;
-  }
+#wrapper.toggled #sidebar-wrapper {
+margin-left: 0;
+}
 
-  .profile-userbuttons {
-    text-align: center;
-    margin-top: 10px;
-  }
+@media (min-width: 768px) {
+#sidebar-wrapper {
+  margin-left: 0;
+}
 
-  .profile-userbuttons .btn {
-    text-transform: uppercase;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 6px 15px;
-    margin-right: 5px;
-  }
+#page-content-wrapper {
+  min-width: 0;
+  width: 100%;
+}
 
-  .profile-userbuttons .btn:last-child {
-    margin-right: 0px;
-  }
-
-  .profile-usermenu {
-    margin-top: 30px;
-  }
-
-  .profile-usermenu ul li {
-    border-bottom: 1px solid #f0f4f7;
-  }
-
-  .profile-usermenu ul li:last-child {
-    border-bottom: none;
-  }
-
-  .profile-usermenu ul li a {
-    color: #93a3b5;
-    font-size: 14px;
-    font-weight: 400;
-  }
-
-  .profile-usermenu ul li a i {
-    margin-right: 8px;
-    font-size: 14px;
-  }
-
-  .profile-usermenu ul li a:hover {
-    background-color: #fafcfd;
-    color: #5b9bd1;
-  }
-
-  .profile-usermenu ul li.active {
-    border-bottom: none;
-  }
-
-  .profile-usermenu ul li.active a {
-    color: #5b9bd1;
-    background-color: #f6f9fb;
-    border-left: 2px solid #5b9bd1;
-    margin-left: -2px;
-  }
-
-  .profile-content{box-shadow:1px 1px 10px rgba(0,0,0,0.3);}
-  /* Profile Content */
-  .profile-content {
-    padding: 20px;
-    background: #fff;
-    min-height: 200px;
-    margin-bottom:30px;
-  } 
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: -15rem;
+}
+}

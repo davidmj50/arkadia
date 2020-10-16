@@ -18,8 +18,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ModalShoppingCartComponent } from './components/shared/modal-shopping-cart/modal-shopping-cart.component';
-import { LoaderComponent } from './components/shared/loader/loader.component';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { LoaderModule } from './components/shared/loader/loader.module';
 
 @NgModule({
   declarations: [
@@ -37,8 +37,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     ShoppingCartComponent,
     DashboardComponent,
     ModalShoppingCartComponent,
-    ModalShoppingCartComponent,
-    LoaderComponent
+    ModalShoppingCartComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +45,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     ReactiveFormsModule,
     APP_ROUTES,
     HttpClientModule,
+    LoaderModule,
     ProgressSpinnerModule
   ],
   providers: [],

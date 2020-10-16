@@ -1,0 +1,30 @@
+<app-loader [loading]="loading"></app-loader>
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="d-flex justify-content-between p-1">
+            <h3>Categorias</h3>
+            <button [routerLink]="['/dashboard/admin/addCategories']" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+        </div>
+        <table class="table table-hover text-center">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" *ngFor="let category of categories">
+                    <td>{{category.id_Categoria}}</td>
+                    <td>{{category.nombre_Categoria}}</td>
+                    <td>{{category.descripcion}}</td>
+                    <td>
+                        <button class="btn btn-warning mr-1" [routerLink]="['/dashboard/admin/editCategories', category.id_Categoria]">Editar</button>
+                        <button class="btn btn-danger">Borrar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

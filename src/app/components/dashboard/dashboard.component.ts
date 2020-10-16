@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+declare var $: any;
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -10,6 +10,15 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.setToggle();
   }
+
+  setToggle(){
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  }
+  
 
 }
