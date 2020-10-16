@@ -13,6 +13,7 @@ import { AddCategoriesComponent } from './add-categories/add-categories.componen
 import { EditCategoriesComponent } from './edit-categories/edit-categories.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoaderModule } from '../components/shared/loader/loader.module';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   imports: [
@@ -20,11 +21,15 @@ import { LoaderModule } from '../components/shared/loader/loader.module';
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    LoaderModule
+    LoaderModule,
+    ToastModule
   ],
   declarations: [
     ListProductsComponent, 
     EditProductsComponent, 
-    AddProductsComponent, ListUsersComponent, EditUsersComponent, AddUsersComponent, ListCategoriesComponent, AddCategoriesComponent, EditCategoriesComponent]
+    AddProductsComponent, ListUsersComponent, EditUsersComponent, AddUsersComponent, ListCategoriesComponent, AddCategoriesComponent, EditCategoriesComponent
+  ],
+  providers:[
+  ]
 })
 export class AdminModule { }

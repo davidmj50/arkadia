@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 declare var $: any;
 @Component({
   selector: 'app-dashboard',
@@ -19,6 +20,4 @@ export class DashboardComponent implements OnInit {
       $("#wrapper").toggleClass("toggled");
     });
   }
-  
-
 }

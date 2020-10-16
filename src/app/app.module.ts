@@ -20,6 +20,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ModalShoppingCartComponent } from './components/shared/modal-shopping-cart/modal-shopping-cart.component';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { LoaderModule } from './components/shared/loader/loader.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//#region Módulos y servicios importados de primeng
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { MessageModule } from 'primeng/message';
+import { MessagesModule } from 'primeng/messages';
+import { ButtonModule } from 'primeng/button';
+
 
 @NgModule({
   declarations: [
@@ -41,14 +50,19 @@ import { LoaderModule } from './components/shared/loader/loader.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     APP_ROUTES,
     HttpClientModule,
     LoaderModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ToastModule,
+    MessageModule,
+    MessagesModule,
+    ButtonModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

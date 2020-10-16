@@ -3,11 +3,13 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/Impl/categories.service';
 import { finalize } from 'rxjs/operators';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-add-categories',
   templateUrl: './add-categories.component.html',
-  styleUrls: ['./add-categories.component.css']
+  styleUrls: ['./add-categories.component.css'],
+  providers: [MessageService]
 })
 export class AddCategoriesComponent implements OnInit {
 
@@ -17,7 +19,8 @@ export class AddCategoriesComponent implements OnInit {
   constructor(
     private router: Router,
     private service: CategoriesService,
-    private formbuilder: FormBuilder) { }
+    private formbuilder: FormBuilder,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.formCategories = this.formbuilder.group({
@@ -35,7 +38,10 @@ export class AddCategoriesComponent implements OnInit {
       })
     ).subscribe((result) => {
       this.loading = true;
-      this.router.navigate(['/dashboard/admin/categories']);
+      this.messageService.add({severity:'success', key: 'toastAdmin',summary:'Información', detail:'La categoría se ha agregado correctamente!'});
+      //this.router.navigate(['/dashboard/admin/categories']);
+    }, error => {
+      this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Antención', detail:'Ha ocurrido un error al guardar!'});
     });
   }
 

@@ -9,11 +9,13 @@ import {
   FormControl,
   FormBuilder
 } from "@angular/forms";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: "app-edit-categories",
   templateUrl: "./edit-categories.component.html",
-  styleUrls: ["./edit-categories.component.css"]
+  styleUrls: ["./edit-categories.component.css"],
+  providers: [MessageService]
 })
 export class EditCategoriesComponent implements OnInit {
   public idCategory: string;
@@ -24,7 +26,8 @@ export class EditCategoriesComponent implements OnInit {
   constructor(
     private _categoryService: CategoriesService,
     private route: ActivatedRoute,
-    private formbuilder: FormBuilder
+    private formbuilder: FormBuilder,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -54,6 +57,7 @@ export class EditCategoriesComponent implements OnInit {
           });
         },
         error => {
+          this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Antención', detail:'Ha ocurrido un error al cargar la categoría!'});
           console.log(error);
         }
       );
@@ -73,9 +77,10 @@ export class EditCategoriesComponent implements OnInit {
       (category: ICategory) => {
         this.loading = true;
         this.category = category;
-
+        this.messageService.add({severity:'success', key: 'toastAdmin',summary:'Información', detail:'La categoría se ha editado correctamente!'});
       },
       error => {
+        this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Antención', detail:'Ha ocurrido un error al editar!'});
         console.log(error);
       }
     );
