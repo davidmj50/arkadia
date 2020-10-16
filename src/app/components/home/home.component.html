@@ -1,4 +1,4 @@
-<app-loader [loading]="false"></app-loader>
+<app-loader [loading]="loading"></app-loader>
 <app-navigation></app-navigation>
 <!-- Slide -->
 <div id="carouselExampleIndicators" class="carousel slide animate__animated animate__fadeIn" data-ride="carousel">
@@ -33,9 +33,7 @@
 
         <h2 class="my-4">Categorias</h2>
         <div class="list-group">
-            <a href="#" class="list-group-item">Categoria 1</a>
-            <a href="#" class="list-group-item">Categoria 2</a>
-            <a href="#" class="list-group-item">Categoria 3</a>
+            <a (click)="filterCategory(category.id_Categoria)" class="list-group-item category" *ngFor="let category of categories">{{category.nombre_Categoria}}</a>
         </div>
 
     </div>

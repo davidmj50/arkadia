@@ -14,3 +14,14 @@ body {
 .limitado{
     min-height: 60px;
 }
+
+.custom-toast .ui-toast-message-content{
+    padding: 1rem !important;
+    font-family: 'Roboto';
+    font-size: 1rem;
+    
+}
+
+.custom-toast .ui-toast {
+    opacity: 0.8;
+}
