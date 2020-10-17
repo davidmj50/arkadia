@@ -16,7 +16,7 @@ export class UsersService extends ServiceService<any> {
     super();
     this.apiUrl = environment.apiRest;
     this.httpClient = http;
-    this.resource = 'usuarios';
+    this.resource = 'usuario';
   }
 
   public getUsers(): Observable<IUser[]> {

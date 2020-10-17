@@ -2,7 +2,7 @@ export interface IUser {
     id_Usuario: number;
     email: string;
     password: string;
-    username: string;
+    userName: string;
     nombre: string;
     apellido: string;
     direccion: string;
@@ -15,7 +15,7 @@ export class User {
     id_Usuario: number;
     email: string;
     password: string;
-    username: string;
+    userName: string;
     nombre: string;
     apellido: string;
     direccion: string;
@@ -25,7 +25,7 @@ export class User {
 
     constructor(email: string,
         password: string,
-        username: string,
+        userName: string,
         nombre: string,
         apellido: string,
         direccion: string,
@@ -34,7 +34,7 @@ export class User {
         id_rol: number) {
           this.email = email;
           this.password = password;
-          this.username = username;
+          this.userName = userName;
           this.nombre = nombre;
           this.apellido = apellido;
           this.direccion = direccion;
