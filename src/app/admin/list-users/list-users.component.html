@@ -1,3 +1,38 @@
-<p>
-  list-users works!
-</p>
+<app-loader [loading]="loading"></app-loader>
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="d-flex justify-content-between p-1">
+            <h3>Usuarios</h3>
+            <button [routerLink]="['/dashboard/admin/addUsers']" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+        </div>
+        <table class="table table-hover text-center">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>UserName</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Fecha nacimiento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" *ngFor="let user of users">
+                    <td>{{user.id_Usuario}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.nombre}}</td>
+                    <td>{{user.apellido}}</td>
+                    <td>{{user.direccion}}</td>
+                    <td>{{user.telefono}}</td>
+                    <td>{{user.fecha_Nacimiento}}</td>
+                    <td>
+                        <button class="btn btn-warning mr-1" [routerLink]="['/dashboard/admin/editUser', user.id_Usuario]">Editar</button>
+                        <button class="btn btn-danger">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
