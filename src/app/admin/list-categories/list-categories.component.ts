@@ -24,7 +24,7 @@ export class ListCategoriesComponent implements OnInit {
       finalize(() => {
         this.loading = false;
       })
-    ).subscribe((resp : ICategory[]) => {
+    ).subscribe((resp: ICategory[]) => {
       this.loading = true;
       console.log(resp);
       this.categories = resp;

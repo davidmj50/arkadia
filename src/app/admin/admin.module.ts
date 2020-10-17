@@ -25,9 +25,15 @@ import {ToastModule} from 'primeng/toast';
     ToastModule
   ],
   declarations: [
-    ListProductsComponent, 
-    EditProductsComponent, 
-    AddProductsComponent, ListUsersComponent, EditUsersComponent, AddUsersComponent, ListCategoriesComponent, AddCategoriesComponent, EditCategoriesComponent
+    ListProductsComponent,
+    EditProductsComponent,
+    AddProductsComponent,
+    ListUsersComponent,
+    EditUsersComponent,
+    AddUsersComponent,
+    ListCategoriesComponent,
+    AddCategoriesComponent,
+    EditCategoriesComponent
   ],
   providers:[
   ]
