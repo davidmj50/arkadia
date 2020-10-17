@@ -2,6 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { CartService } from "src/app/services/cart.service";
 import { IItem } from "src/app/models/Item.model";
+import { IProduct } from "src/app/models/Product.model";
+import { finalize } from 'rxjs/operators';
+import { ProductsService } from "src/app/services/Impl/products.service";
+import { CategoriesService } from "src/app/services/Impl/categories.service";
+import { ICategory } from "src/app/models/Category.model";
 
 @Component({
   selector: "app-home",
@@ -9,7 +14,15 @@ import { IItem } from "src/app/models/Item.model";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router, private _cartService: CartService) {}
+  
+  public loading: boolean = false;
+  public products: IProduct[] = [];
+  public categories: ICategory[] = [];
+  
+  constructor(private router: Router, 
+    private _cartService: CartService,
+    private productService: ProductsService,
+    private categoriesService: CategoriesService) {}
 
   public listProducts: Array<IItem> = [
     {
@@ -35,15 +48,42 @@ export class HomeComponent implements OnInit {
       id: 2,
       img:
         "https://createc3d.com/shop/1244-thickbox_default/comprar-modulo-rele-5v-compatible-con-arduino-1-canal-precio-oferta.jpg",
-      name: "Modulo Relay Rele De 1 Canal 5v 10a Arduino Pic Avr Robotica",
-      price: 120,
-      description:
+        name: "Modulo Relay Rele De 1 Canal 5v 10a Arduino Pic Avr Robotica",
+        price: 120,
+        description:
         "Módulo de relevadores (reles) para conmutación de cargas de potencia. Los contactos de los relevadores están diseñados para conmutar cargas de hasta 10 A y 250VAC (30VDC), aunque recomendamos dejar un márgen hacia abajo de estos límites. La señal de control puede provenir de cualquier circuito de control TTL o CMOS como un microcontrolador.",
-      quantity: 1
-    }
-  ];
+        quantity: 1
+      }
+    ];
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loadProducts();
+    this.loadCategories();
+  }
+  
+  public loadCategories() {
+    this.categoriesService.getCategories().pipe(
+      finalize(() => {
+        this.loading = false;
+      })
+    ).subscribe((resp : ICategory[]) => {
+      this.loading = true;
+      console.log(resp);
+      this.categories = resp;
+    });
+  }
+
+  public loadProducts() {
+    this.productService.getProducts().pipe(
+      finalize(() => {
+        this.loading = false;
+      })
+    ).subscribe((resp : IProduct[]) => {
+      this.loading = true;
+      console.log(resp);
+      this.products = resp;
+    });
+  }
 
   viewProduct(producto: IItem) {
     this.router.navigate(["productDetail"], {
@@ -55,5 +95,11 @@ export class HomeComponent implements OnInit {
 
   public addCart(product) {
     this._cartService.changeCart(product);
+  }
+
+  public filterCategory(idCategory: number) {
+    console.log(idCategory);
+    this.router.navigate(['/products'], {queryParams: {idCategory: idCategory}} );
+    window.scrollTo(0, 0);
   }
 }

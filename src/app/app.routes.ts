@@ -10,6 +10,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
+const adminModule = () => import('./admin/admin.module').then(mod => mod.AdminModule);
+
 const routes: Routes = [
     { path: 'home', component: HomeComponent  },
     { path: 'contact', component: ContactComponent  },
@@ -19,10 +21,34 @@ const routes: Routes = [
     { path: 'productDetail', component: ProductDetailComponent  },
     { path: 'register', component: RegisterComponent  },
     { path: 'nofound', component: NofoundComponent  },
-    { path: 'dashboard', component: DashboardComponent  },
     { path: 'cartShopping', component: ShoppingCartComponent  },
+    { 
+        path: 'dashboard', 
+        component: DashboardComponent,
+        data: { title: 'Inicio'},
+        children: [
+            { 
+                path: 'admin', 
+                loadChildren: adminModule
+            },
+            { 
+                path: 'nofound', 
+                component: NofoundComponent
+            },
+            {
+                path: '',
+                redirectTo: 'dashboard/nofound',
+                pathMatch: 'full'
+            },
+            {
+                path: '**',
+                redirectTo: 'dashboard/nofound',
+                pathMatch: 'full'
+            }
+        ]
+    },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: '**', redirectTo: 'home', pathMatch: 'full' }
+    { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 export const APP_ROUTES = RouterModule.forRoot(routes, { useHash: true });

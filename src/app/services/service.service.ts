@@ -1,11 +1,9 @@
-import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { map } from 'rxjs/operators';
+import * as _ from 'lodash';
 
-@Injectable({
-  providedIn: "root"
-})
+
 export class ServiceService<T> {
   public httpClient: HttpClient;
   public apiUrl: string;
@@ -31,7 +29,7 @@ export class ServiceService<T> {
       );
   }
 
-  public update(data: any, path?: string): Observable<string> {
+  public update(data: any, path?: string): Observable<any> {
     return this.httpClient.put(this.getFullPath() + path, data).pipe(
         map((res: any) => res)
       );

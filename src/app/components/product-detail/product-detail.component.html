@@ -1,4 +1,5 @@
 <app-navigation></app-navigation>
+<p-toast position="top-right" class="custom-toast"></p-toast>
 <!-- Page Content -->
 <div class="container">
 
@@ -43,7 +44,7 @@
           <h4>Precio: <span class="prize">{{1250000 | currency:'USD':'symbol': '4.0-2'}}</span></h4>
         </div>
         <div class="">
-          <button class="btn btn-outline-success btn-block"><i class="fas fa-shopping-cart"></i> Agregar al
+          <button class="btn btn-outline-success btn-block" (click)="addCart()"><i class="fas fa-shopping-cart"></i> Agregar al
             carrito</button>
         </div>
       </div>

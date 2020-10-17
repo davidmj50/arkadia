@@ -1,0 +1,26 @@
+.row > div{
+    padding: 20px;
+  }
+  img.pequeña{
+    width: 50px; height: 50px;
+  }
+  img.mediana{
+    width: 100px; height: 100px;
+  }
+  img.grande{
+    width: 200px; height: 200px;
+  }
+  h1 {
+    color: #3c1b66;
+    font-weight: normal;
+    font-size: 40px;
+    font-family: Arial;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  h2 {
+    color: #3c1b66;
+    font-weight: normal;
+    font-size: 35px;
+    font-family: Arial;
+  }

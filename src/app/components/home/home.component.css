@@ -71,3 +71,7 @@
     line-height: 1.2;
     color: #212529;
 }
+
+.category {
+    cursor: pointer !important;
+}
