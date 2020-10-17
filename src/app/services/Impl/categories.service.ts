@@ -10,7 +10,7 @@ import { IProduct } from 'src/app/models/Product.model';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriesService extends ServiceService<any>{
+export class CategoriesService extends ServiceService<any> {
 
   constructor(private http: HttpClient) {
     super();
@@ -32,13 +32,18 @@ export class CategoriesService extends ServiceService<any>{
   }
 
   public createCategory(name: string, description: string): Observable<ICategory> {
-    let category: Category = new Category(name, description);
+    const category: Category = new Category(name, description);
     return this.post(category, '').pipe(map((resp: ICategory) => resp));
   }
 
-  public updateCategory(name: string, description: string, idCategory: string): Observable<ICategory>{
-    let category: Category = new Category(name, description);
+  public updateCategory(name: string, description: string, idCategory: string): Observable<ICategory> {
+    const category: Category = new Category(name, description);
     const path = `/${idCategory}`;
     return this.update(category, path).pipe(map((resp: ICategory) => resp));
+  }
+
+  public deleteCategory(idCategory: string): Observable<ICategory> {
+    const path = `/${idCategory}`;
+    return this.executeDelete(path).pipe(map((resp: ICategory) => resp));
   }
 }

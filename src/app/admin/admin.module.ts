@@ -35,7 +35,7 @@ import {ToastModule} from 'primeng/toast';
     AddCategoriesComponent,
     EditCategoriesComponent
   ],
-  providers:[
+  providers: [
   ]
 })
 export class AdminModule { }
