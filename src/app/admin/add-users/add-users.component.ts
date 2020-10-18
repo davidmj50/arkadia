@@ -35,7 +35,7 @@ export class AddUsersComponent implements OnInit {
     });
   }
 
-  guardar() {
+  Guardar() {
     this.service.createUser(
       this.formUsers.get('email').value,
       this.formUsers.get('userName').value,
