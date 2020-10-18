@@ -4,44 +4,33 @@
 <div class="container">
 
   <!-- Portfolio Item Heading -->
-  <h1 class="my-4">Page Heading
-    <small>Secondary Text</small>
+  <h1 class="my-4">{{product?.nombre_Producto}}
   </h1>
 
   <!-- Portfolio Item Row -->
   <div class="row">
 
     <div class="col-md-8">
-      <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+      <img style="max-width: 25rem;" class="img-fluid" [src]="product?.imagen" alt="">
     </div>
 
     <div class="col-md-4">
-      <h3 class="my-3">Project Description</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna
-        varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu
-        convallis placerat, felis enim.</p>
-      <h3 class="my-3">Project Details</h3>
-      <ul>
-        <li>Lorem Ipsum</li>
-        <li>Dolor Sit Amet</li>
-        <li>Consectetur</li>
-      </ul>
+      <h3 class="my-3">{{product?.nombre_Producto}}</h3>
+      <p>{{product?.descripcion}}</p>
       <hr>
       <div>
         <div class="form-group">
           <div class="row">
-            <label for="" class="col-sm-2 col-form-label mr-3">Cantidad: </label>
+            <label for="" class="col-sm-2 col-form-label mr-3">Stock: </label>
             <div class="col-sm-8">
               <select class="form-control" name="" id="">
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
+                  <option *ngFor="let opt of numbers">{{opt}}</option>
               </select>
             </div>
           </div>
         </div>
         <div>
-          <h4>Precio: <span class="prize">{{1250000 | currency:'USD':'symbol': '4.0-2'}}</span></h4>
+          <h4>Precio: <span class="prize">{{product?.precio | number}} pts</span></h4>
         </div>
         <div class="">
           <button class="btn btn-outline-success btn-block" (click)="addCart()"><i class="fas fa-shopping-cart"></i> Agregar al

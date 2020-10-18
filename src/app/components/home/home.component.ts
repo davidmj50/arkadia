@@ -7,6 +7,7 @@ import { finalize } from 'rxjs/operators';
 import { ProductsService } from "src/app/services/Impl/products.service";
 import { CategoriesService } from "src/app/services/Impl/categories.service";
 import { ICategory } from "src/app/models/Category.model";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: "app-home",
@@ -22,7 +23,8 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, 
     private _cartService: CartService,
     private productService: ProductsService,
-    private categoriesService: CategoriesService) {}
+    private categoriesService: CategoriesService,
+    private messageService: MessageService) {}
 
   public listProducts: Array<IItem> = [
     {
@@ -70,6 +72,8 @@ export class HomeComponent implements OnInit {
       this.loading = true;
       console.log(resp);
       this.categories = resp;
+    }, error => {
+      this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Atención', detail:'Ha ocurrido un error al cargar las categorias!'});
     });
   }
 
@@ -82,18 +86,20 @@ export class HomeComponent implements OnInit {
       this.loading = true;
       console.log(resp);
       this.products = resp;
+    }, error => {
+      this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Atención', detail:'Ha ocurrido un error al cargar los productos!'});
     });
   }
 
-  viewProduct(producto: IItem) {
+  viewProduct(idProducto: string) {
     this.router.navigate(["productDetail"], {
-      queryParams: { idProduct: producto.id },
+      queryParams: { idProduct: idProducto },
       skipLocationChange: false
     });
     window.scrollTo(0, 0);
   }
 
-  public addCart(product) {
+  public addCart(product: IProduct) {
     this._cartService.changeCart(product);
   }
 

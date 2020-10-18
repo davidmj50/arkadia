@@ -9,7 +9,12 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService extends ServiceService<any>{
+export class ProductsService extends ServiceService<IProduct>{
+  
+  public getProduct(idProduct: number) {
+    const path = `/${idProduct}`;
+    return this.executeGet(path).pipe(map((resp: IProduct) => resp));
+  }
 
   constructor(private http: HttpClient) { 
     super();

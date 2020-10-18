@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ICategory } from 'src/app/models/Category.model';
 import { CategoriesService } from 'src/app/services/Impl/categories.service';
 import { finalize } from 'rxjs/operators';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-list-categories',
@@ -13,7 +14,9 @@ export class ListCategoriesComponent implements OnInit {
   public categories: ICategory[] = [];
   public loading: boolean = false;
   
-  constructor(private categoriesService: CategoriesService) { }
+  constructor(
+    private categoriesService: CategoriesService,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.loadCategories();
@@ -26,8 +29,9 @@ export class ListCategoriesComponent implements OnInit {
       })
     ).subscribe((resp : ICategory[]) => {
       this.loading = true;
-      console.log(resp);
       this.categories = resp;
+    }, error => {
+      this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Antención', detail:'Ha ocurrido un error al cargar las categorias!'});
     });
   }
 }

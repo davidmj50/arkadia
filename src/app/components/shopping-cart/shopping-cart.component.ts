@@ -2,6 +2,7 @@ import { Component, OnInit, DoCheck, AfterContentChecked, Input } from '@angular
 import { IItem } from 'src/app/models/Item.model';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
+import { IProduct } from 'src/app/models/Product.model';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -21,14 +22,14 @@ export class ShoppingCartComponent implements OnInit, AfterContentChecked {
   }
 
   @Input()
-  public items: IItem[]; 
+  public items: IProduct[] = []; 
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.items = this._cartService.getProductsCart();
     this.validarCarrito();
     this.items.forEach(element => {
-      this.totalPago += element.price * element.quantity;
+      this.totalPago += element.precio * element.cantidad;
   });
   }
   
@@ -38,7 +39,7 @@ export class ShoppingCartComponent implements OnInit, AfterContentChecked {
     console.log(item);
   }
 
-  public removeItem(producto: IItem, e: any){
+  public removeItem(producto: IProduct, e: any){
     this._cartService.removeElementCart(producto);
     this.items = this._cartService.getProductsCart();
     this.items.length;

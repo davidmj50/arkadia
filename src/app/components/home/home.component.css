@@ -75,3 +75,10 @@
 .category {
     cursor: pointer !important;
 }
+
+.card-img-top {
+    max-height: 10rem;
+    width: auto;
+    margin-left: 25%;
+    margin-top: 1rem;
+}
