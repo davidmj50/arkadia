@@ -12,9 +12,7 @@
                     <th>UserName</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
-                    <th>Direccion</th>
                     <th>Telefono</th>
-                    <th>Fecha nacimiento</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -24,9 +22,7 @@
                     <td>{{user.userName}}</td>
                     <td>{{user.nombre}}</td>
                     <td>{{user.apellido}}</td>
-                    <td>{{user.direccion}}</td>
                     <td>{{user.telefono}}</td>
-                    <td>{{user.fecha_Nacimiento}}</td>
                     <td>
                         <button class="btn btn-warning mr-1" [routerLink]="['/dashboard/admin/editUser', user.id_Usuario]">Editar</button>
                         <button class="btn btn-danger">Eliminar</button>

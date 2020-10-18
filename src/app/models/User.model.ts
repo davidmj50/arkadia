@@ -1,5 +1,5 @@
 export interface IUser {
-    id_Usuario: number;
+    id?: number;
     email: string;
     password: string;
     userName: string;
@@ -12,7 +12,7 @@ export interface IUser {
 }
 
 export class User {
-    id_Usuario: number;
+    id?: number;
     email: string;
     password: string;
     userName: string;
