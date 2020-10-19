@@ -86,8 +86,9 @@ export class EditUsersComponent implements OnInit {
       this.formUsers.get('password').value,
       this.formUsers.get('direccion').value,
       this.formUsers.get('telefono').value,
-      this.formUsers.get('fecha_Nacimiento').value,
-      this.idUser)
+      new Date(this.formUsers.get('fecha_Nacimiento').value),
+      this.idUser,
+      1)
     .pipe(
       finalize(() => {
         this.loading = false;
