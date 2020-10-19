@@ -2,7 +2,7 @@ import { IRole } from "./Role.model";
 
 export interface IUser {
     id?: number;
-    email: string;
+    eMail: string;
     password: string;
     userName: string;
     nombre: string;
@@ -15,7 +15,7 @@ export interface IUser {
 
 export class User {
     id?: number;
-    email: string;
+    eMail: string;
     password: string;
     userName: string;
     nombre: string;
@@ -25,7 +25,7 @@ export class User {
     fecha_Nacimiento: Date;
     id_rol: number;
 
-    constructor(email: string,
+    constructor(eMail: string,
         password: string,
         userName: string,
         nombre: string,
@@ -34,7 +34,7 @@ export class User {
         telefono: string,
         fecha_Nacimiento: Date,
         id_rol: number) {
-          this.email = email;
+          this.eMail = eMail;
           this.password = password;
           this.userName = userName;
           this.nombre = nombre;

@@ -10,12 +10,13 @@ import {
   FormBuilder
 } from '@angular/forms';
 import { MessageService } from 'primeng/api';
+import { DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-edit-users',
   templateUrl: './edit-users.component.html',
   styleUrls: ['./edit-users.component.css'],
-  providers: [MessageService]
+  providers: [MessageService, DatePipe]
 })
 export class EditUsersComponent implements OnInit {
   public idUser: string;
@@ -27,14 +28,16 @@ export class EditUsersComponent implements OnInit {
     private _userservice: UsersService,
     private route: ActivatedRoute,
     private formbuilder: FormBuilder,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.formUsers = this.formbuilder.group({
       userName: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
       nombre: new FormControl('', Validators.required),
       apellido: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
+      correo: new FormControl('', Validators.required),
       direccion: new FormControl('', Validators.required),
       telefono: new FormControl('', Validators.required),
       fecha_Nacimiento: new FormControl('', Validators.required)
@@ -54,10 +57,16 @@ export class EditUsersComponent implements OnInit {
         (user: IUser) => {
           this.loading = true;
           this.user = user;
+          console.log(this.user);
           this.formUsers.setValue({
             userName: this.user.userName,
-            nombre: this.user.nombre
-           
+            nombre: this.user.nombre,
+            password: this.user.password,
+            apellido: this.user.apellido,
+            telefono: this.user.telefono,
+            correo: this.user.eMail,
+            direccion: this.user.direccion,
+            fecha_Nacimiento: this.datePipe.transform(this.user.fecha_Nacimiento, 'yyyy-MM-dd')
           });
         },
         error => {
