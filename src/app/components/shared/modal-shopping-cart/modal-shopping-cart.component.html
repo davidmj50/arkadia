@@ -17,24 +17,21 @@
               <div class="row products mb-3">
                 <div class="col-md-4">
                   <div class="card bg-green">
-                    <img height="auto" [src]="item.img" alt="Image">
+                    <img [src]="item.imagen" class="card-img-top" alt="Image">
                   </div>
                 </div>
                 <div class="col-md-8">
-                  <p>{{item.description}}</p>
+                  <p class="limitado">{{item.descripcion}}</p>
                   <div class="form-group row">
                     <label for="" class="col-sm-2 col-form-label">Cantidad: </label>
-                    <select class="col-sm-2 form-control" name="" id=""
-                      (change)="setQuantity(item, $event.target.value)">
-                      <option value="">1</option>
-                      <option value="">2</option>
-                      <option value="">3</option>
+                    <select class="col-sm-2 form-control"[(ngModel)]="item.cantidad">
+                      <option *ngFor="let cantidad of item.stock | numbersCollection" [value]="cantidad">{{cantidad}}</option>
                     </select>
                     <span class="icon-cart ml-3 mt-1" (click)="removeItem(item)"><i class="fas fa-trash"></i>
                       Eliminar</span>
                   </div>
 
-                  <span class="prize"><strong>{{item.price | number}} pts</strong></span>
+                  <span class="prize"><strong>{{item.precio | number}} pts</strong></span>
                 </div>
               </div>
             </div>

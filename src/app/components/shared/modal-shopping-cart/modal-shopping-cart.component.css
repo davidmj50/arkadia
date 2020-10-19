@@ -21,3 +21,10 @@
     border-radius: 5px;
     padding: 5px;
 }
+
+
+.card-img-top {
+    max-height: 10rem;
+    width: auto;
+    margin-top: 1rem;
+}

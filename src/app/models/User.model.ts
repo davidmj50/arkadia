@@ -1,3 +1,5 @@
+import { IRole } from "./Role.model";
+
 export interface IUser {
     id?: number;
     email: string;

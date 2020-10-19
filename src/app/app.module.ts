@@ -28,6 +28,8 @@ import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { ButtonModule } from 'primeng/button';
+import { NumbersCollectionPipe } from './pipes/numbers-collection.pipe';
+import { LimitedTextPipe } from './pipes/limited-text.pipe';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { ButtonModule } from 'primeng/button';
     ShoppingCartComponent,
     DashboardComponent,
     ModalShoppingCartComponent,
-    ModalShoppingCartComponent
+    ModalShoppingCartComponent,
+    NumbersCollectionPipe,
+    LimitedTextPipe
   ],
   imports: [
     BrowserModule,

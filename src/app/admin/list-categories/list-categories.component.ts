@@ -13,9 +13,12 @@ import { MessageService } from 'primeng/api';
 export class ListCategoriesComponent implements OnInit {
 
   public categories: ICategory[] = [];
-  public loading = false;
 
-  constructor(private categoriesService: CategoriesService, private messageService: MessageService) { }
+  public loading: boolean = false;
+  
+  constructor(
+    private categoriesService: CategoriesService,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.loadCategories();
@@ -28,8 +31,9 @@ export class ListCategoriesComponent implements OnInit {
       })
     ).subscribe((resp: ICategory[]) => {
       this.loading = true;
-      console.log(resp);
       this.categories = resp;
+    }, error => {
+      this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Antención', detail:'Ha ocurrido un error al cargar las categorias!'});
     });
   }
 
