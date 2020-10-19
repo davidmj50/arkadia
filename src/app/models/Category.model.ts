@@ -9,7 +9,7 @@ export class Category {
     nombre_Categoria: string;
     descripcion: string;
 
-    constructor(nombre: string, descripcion: string){
+    constructor(nombre: string, descripcion: string) {
         this.nombre_Categoria = nombre;
         this.descripcion = descripcion;
     }

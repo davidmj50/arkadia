@@ -17,3 +17,10 @@ img {
 .summary-price {
     font-size: 1.125rem;
 }
+
+.card-img-top {
+    max-height: 7rem;
+    width: auto !important;
+    /* margin-left: 25%; */
+    margin-top: 1rem;
+}

@@ -1,3 +1,49 @@
-<p>
-  edit-users works!
-</p>
+<p-toast key="toastAdmin" position="top-right" class="custom-toast"></p-toast>
+<div class="card mt-3">
+    <div class="card-header">
+      <div class="d-flex justify-content-start p-1">
+        <button [routerLink]="['/dashboard/admin/users']" class="btn btn-primary"><i
+          class="fas fa-arrow-left"></i></button>
+            <h3 class="ml-3">Editar Usuarios</h3>
+          </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+          <form action="" [formGroup]="formUsers" (ngSubmit)="updateUser()">
+            <div class="form-group">
+              <label for="userName">UserName</label>
+              <input formControlName="userName" type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="nombre">Nombres</label>
+              <input formControlName="nombre"  type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellidos</label>
+              <input formControlName="apellido"  type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electronico</label>
+              <input formControlName="email"  type="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Clave de acceso</label>
+              <input formControlName="password"  type="password" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="direccion">Direccion</label>
+              <input formControlName="direccion"  type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input formControlName="telefono"  type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="fecha_Nacimiento">Fecha nacimiento</label>
+              <input formControlName="fecha_Nacimiento"  type="date" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="formUsers.invalid">Guardar</button>
+          </form>
+        </div>
+      </div>
+</div> 

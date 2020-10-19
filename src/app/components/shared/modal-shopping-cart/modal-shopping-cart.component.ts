@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, AfterContentChecked } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { IItem } from 'src/app/models/Item.model';
+import { IProduct } from 'src/app/models/Product.model';
 
 @Component({
   selector: 'app-modal-shopping-cart',
@@ -8,6 +9,8 @@ import { IItem } from 'src/app/models/Item.model';
   styleUrls: ['./modal-shopping-cart.component.css']
 })
 export class ModalShoppingCartComponent implements OnInit, AfterContentChecked {
+
+  public numbers: number[];
 
   ngAfterContentChecked(): void {
     this.items = this._cartService.getProductsCart();
@@ -18,18 +21,19 @@ export class ModalShoppingCartComponent implements OnInit, AfterContentChecked {
   }
 
   @Input()
-  public items: IItem[]; 
+  public items: IProduct[] = []; 
 
   ngOnInit(): void {
   }
   
   constructor(private _cartService: CartService) { }
 
-  public setQuantity(item) {
+  public setQuantity(item: IProduct) {
+    // item.cantidad = 
     console.log(item);
   }
 
-  public removeItem(producto: IItem, e: any){
+  public removeItem(producto: IProduct, e: any){
     this._cartService.removeElementCart(producto);
     this.items = this._cartService.getProductsCart();
     this.items.length
