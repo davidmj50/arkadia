@@ -66,7 +66,7 @@ export class UsersService extends ServiceService<any> {
     idRole: number,
 
   ): Observable<IUser> {
-    let user: User = new User(
+    const user: User = new User(
       eMail,
       password,
       userName,

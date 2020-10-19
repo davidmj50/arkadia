@@ -27,6 +27,7 @@ export class AddUsersComponent implements OnInit {
     this.formUsers = this.formbuilder.group({
       userName: new FormControl('', Validators.required),
       nombre: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
       apellido: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       direccion: new FormControl('', Validators.required),
@@ -44,7 +45,7 @@ export class AddUsersComponent implements OnInit {
       this.formUsers.get('password').value,
       this.formUsers.get('direccion').value,
       this.formUsers.get('telefono').value,
-      this.formUsers.get('fecha_Nacimiento').value
+      new Date(this.formUsers.get('fecha_Nacimiento').value),
       ).pipe(
       finalize(() => {
         this.loading = false;

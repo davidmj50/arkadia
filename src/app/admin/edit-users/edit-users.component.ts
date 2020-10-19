@@ -10,7 +10,7 @@ import {
   FormBuilder
 } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { DatePipe} from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-edit-users',
@@ -37,7 +37,7 @@ export class EditUsersComponent implements OnInit {
       password: new FormControl('', Validators.required),
       nombre: new FormControl('', Validators.required),
       apellido: new FormControl('', Validators.required),
-      correo: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
       direccion: new FormControl('', Validators.required),
       telefono: new FormControl('', Validators.required),
       fecha_Nacimiento: new FormControl('', Validators.required)
@@ -63,9 +63,9 @@ export class EditUsersComponent implements OnInit {
             nombre: this.user.nombre,
             password: this.user.password,
             apellido: this.user.apellido,
-            telefono: this.user.telefono,
-            correo: this.user.eMail,
+            email: this.user.eMail,
             direccion: this.user.direccion,
+            telefono: this.user.telefono,
             fecha_Nacimiento: this.datePipe.transform(this.user.fecha_Nacimiento, 'yyyy-MM-dd')
           });
         },

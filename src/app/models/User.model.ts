@@ -1,4 +1,4 @@
-import { IRole, Role } from "./Role.model";
+import { IRole, Role } from './Role.model';
 
 export interface IUser {
     id?: number;
@@ -26,16 +26,16 @@ export class User {
     // id_rol: number;
     rol: Role;
 
-    constructor(eMail: string,
+    constructor(email: string,
         password: string,
         userName: string,
         nombre: string,
         apellido: string,
         direccion: string,
         telefono: string,
-        fecha_Nacimiento: Date,
-        id_rol: number) {
-          this.eMail = eMail;
+        fecha_Nacimiento: string,
+        idRole: number) {
+          this.eMail = email;
           this.password = password;
           this.userName = userName;
           this.nombre = nombre;
