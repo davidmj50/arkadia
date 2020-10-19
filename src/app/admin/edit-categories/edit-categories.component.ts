@@ -1,26 +1,26 @@
-import { Component, OnInit } from "@angular/core";
-import { CategoriesService } from "src/app/services/Impl/categories.service";
-import { ActivatedRoute } from "@angular/router";
-import { ICategory } from "src/app/models/Category.model";
-import { finalize } from "rxjs/operators";
+import { Component, OnInit } from '@angular/core';
+import { CategoriesService } from 'src/app/services/Impl/categories.service';
+import { ActivatedRoute } from '@angular/router';
+import { ICategory } from 'src/app/models/Category.model';
+import { finalize } from 'rxjs/operators';
 import {
   FormGroup,
   Validators,
   FormControl,
   FormBuilder
-} from "@angular/forms";
-import { MessageService } from "primeng/api";
+} from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
-  selector: "app-edit-categories",
-  templateUrl: "./edit-categories.component.html",
-  styleUrls: ["./edit-categories.component.css"],
+  selector: 'app-edit-categories',
+  templateUrl: './edit-categories.component.html',
+  styleUrls: ['./edit-categories.component.css'],
   providers: [MessageService]
 })
 export class EditCategoriesComponent implements OnInit {
   public idCategory: string;
   public category: ICategory;
-  public loading: boolean = false;
+  public loading = false;
   public formCategories: FormGroup;
 
   constructor(
@@ -32,10 +32,10 @@ export class EditCategoriesComponent implements OnInit {
 
   ngOnInit() {
     this.formCategories = this.formbuilder.group({
-      name: new FormControl("", Validators.required),
-      description: new FormControl("", Validators.required)
+      name: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required)
     });
-    this.idCategory = this.route.snapshot.paramMap.get("id");
+    this.idCategory = this.route.snapshot.paramMap.get('id');
     this.getCategory();
   }
 
@@ -57,7 +57,8 @@ export class EditCategoriesComponent implements OnInit {
           });
         },
         error => {
-          this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Antención', detail:'Ha ocurrido un error al cargar la categoría!'});
+          this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+          detail: 'Ha ocurrido un error al cargar la categoría!'});
           console.log(error);
         }
       );
@@ -77,10 +78,12 @@ export class EditCategoriesComponent implements OnInit {
       (category: ICategory) => {
         this.loading = true;
         this.category = category;
-        this.messageService.add({severity:'success', key: 'toastAdmin',summary:'Información', detail:'La categoría se ha editado correctamente!'});
+        this.messageService.add({severity: 'success', key: 'toastAdmin', summary: 'Información',
+        detail: 'La categoría se ha editado correctamente!'});
       },
       error => {
-        this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Antención', detail:'Ha ocurrido un error al editar!'});
+        this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+        detail: 'Ha ocurrido un error al editar!'});
         console.log(error);
       }
     );
