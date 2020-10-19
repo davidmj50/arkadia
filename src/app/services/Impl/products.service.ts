@@ -9,7 +9,12 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService extends ServiceService<any>{
+export class ProductsService extends ServiceService<IProduct>{
+  
+  public getProduct(idProduct: number) {
+    const path = `/${idProduct}`;
+    return this.executeGet(path).pipe(map((resp: IProduct) => resp));
+  }
 
   constructor(private http: HttpClient) { 
     super();
@@ -22,6 +27,11 @@ export class ProductsService extends ServiceService<any>{
     const path = ``;
     // let params = new HttpParams();
     // params = params.append('idCase', String(idCase));
+    return this.executeGet(path).pipe(map((resp: IProduct[]) => resp));
+  }
+
+  public getProductsByCategoryId(idCategory: string): Observable<IProduct[]> {
+    const path = `/prodcategoria/${idCategory}`;
     return this.executeGet(path).pipe(map((resp: IProduct[]) => resp));
   }
 }
