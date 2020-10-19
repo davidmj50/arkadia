@@ -100,6 +100,7 @@ export class HomeComponent implements OnInit {
   }
 
   public addCart(product: IProduct) {
+    product.cantidad = 1;
     this._cartService.changeCart(product);
   }
 

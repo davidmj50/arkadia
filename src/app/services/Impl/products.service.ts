@@ -29,4 +29,9 @@ export class ProductsService extends ServiceService<IProduct>{
     // params = params.append('idCase', String(idCase));
     return this.executeGet(path).pipe(map((resp: IProduct[]) => resp));
   }
+
+  public getProductsByCategoryId(idCategory: string): Observable<IProduct[]> {
+    const path = `/prodcategoria/${idCategory}`;
+    return this.executeGet(path).pipe(map((resp: IProduct[]) => resp));
+  }
 }

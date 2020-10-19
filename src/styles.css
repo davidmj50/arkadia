@@ -25,3 +25,12 @@ body {
 .custom-toast .ui-toast {
     opacity: 0.8;
 }
+
+.quantity {
+    width: 45rem;
+    padding: 0.57rem;
+    background-color: #eee;
+    position: relative;
+    top: 1px;
+    border-radius: 5px;
+}

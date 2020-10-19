@@ -21,11 +21,19 @@
       <div>
         <div class="form-group">
           <div class="row">
-            <label for="" class="col-sm-2 col-form-label mr-3">Stock: </label>
+            <label for="" class="col-sm-2 col-form-label mr-3">Cantidad: </label>
             <div class="col-sm-8">
-              <select class="form-control" name="" id="">
-                  <option *ngFor="let opt of numbers">{{opt}}</option>
-              </select>
+              <div class="">
+                  <button class="btn btn-secondary" [disabled]="product?.stock == 0" (click)="reduceQuantity()">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <span class="quantity">
+                    {{product?.cantidad}}
+                  </span>
+                  <button class="btn btn-secondary" [disabled]="product?.stock == 0" (click)="addQuantity()">
+                    <i class="fas fa-plus"></i>
+                  </button>
+              </div>
             </div>
           </div>
         </div>

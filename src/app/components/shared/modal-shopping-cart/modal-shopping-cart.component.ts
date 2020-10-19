@@ -10,6 +10,8 @@ import { IProduct } from 'src/app/models/Product.model';
 })
 export class ModalShoppingCartComponent implements OnInit, AfterContentChecked {
 
+  public numbers: number[];
+
   ngAfterContentChecked(): void {
     this.items = this._cartService.getProductsCart();
   }
@@ -26,7 +28,8 @@ export class ModalShoppingCartComponent implements OnInit, AfterContentChecked {
   
   constructor(private _cartService: CartService) { }
 
-  public setQuantity(item) {
+  public setQuantity(item: IProduct) {
+    // item.cantidad = 
     console.log(item);
   }
 
