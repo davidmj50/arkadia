@@ -30,6 +30,7 @@ import { MessagesModule } from 'primeng/messages';
 import { ButtonModule } from 'primeng/button';
 import { NumbersCollectionPipe } from './pipes/numbers-collection.pipe';
 import { LimitedTextPipe } from './pipes/limited-text.pipe';
+import { ConfirmPurchasingComponent } from './components/shared/confirm-purchasing/confirm-purchasing.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { LimitedTextPipe } from './pipes/limited-text.pipe';
     ModalShoppingCartComponent,
     ModalShoppingCartComponent,
     NumbersCollectionPipe,
-    LimitedTextPipe
+    LimitedTextPipe,
+    ConfirmPurchasingComponent
   ],
   imports: [
     BrowserModule,
