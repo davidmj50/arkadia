@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiRest: 'http://localhost:8080/',
+  apiRest: 'http://localhost:9600/Arkadia/',
 };
 
 /*
