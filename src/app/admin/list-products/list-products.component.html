@@ -11,13 +11,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center">
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr class="text-center"  *ngFor="let product of products">
+                    <td>{{product.id_Producto}}</td>
+                    <td>{{product.nombre_Producto}}</td>
+                    <td>{{product.stock}}</td>
                     <td>
-                        <button class="btn btn-warning mr-1">Editar</button>
-                        <button class="btn btn-danger">Borrar</button>
+                        <button class="btn btn-warning mr-1" [routerLink]="['/dashboard/admin/editProducts', product.id_Producto]">Editar</button>
+                        <button (click)="Delete(product.id_Producto)" class="btn btn-danger">Borrar</button>
                     </td>
                 </tr>
             </tbody>

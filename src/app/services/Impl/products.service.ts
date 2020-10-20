@@ -23,7 +23,7 @@ export class ProductsService extends ServiceService<IProduct>{
     this.resource = 'producto';
   }
 
-  public getProducts() : Observable<IProduct[]> {
+  public getProducts(): Observable<IProduct[]> {
     const path = ``;
     // let params = new HttpParams();
     // params = params.append('idCase', String(idCase));
@@ -33,5 +33,10 @@ export class ProductsService extends ServiceService<IProduct>{
   public getProductsByCategoryId(idCategory: string): Observable<IProduct[]> {
     const path = `/prodcategoria/${idCategory}`;
     return this.executeGet(path).pipe(map((resp: IProduct[]) => resp));
+  }
+
+   public DeleteProduct(idProduct: string): Observable<IProduct> {
+    const path = `/${idProduct}`;
+    return this.executeDelete(path).pipe(map((resp: IProduct) => resp));
   }
 }
