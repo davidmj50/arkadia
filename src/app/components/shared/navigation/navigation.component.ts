@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Inject, HostListener, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Inject, HostListener, AfterContentChecked, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { CartService } from 'src/app/services/cart.service';
 import { IUser } from 'src/app/models/User.model';
@@ -13,9 +13,12 @@ declare const $ : any;
 export class NavigationComponent implements OnInit, AfterViewInit, AfterContentChecked {
   
   public user: IUser;
+  @Input()
+  public pointsUser: number = 0;
 
   public getInfoUser() {
-    this.user = JSON.parse(localStorage.getItem('infoUser'));
+    // console.log(localStorage.getItem("pointsUser"));
+    this.user = JSON.parse(localStorage.getItem('userInfo'));
   }
   
   public numProducts: number = 0;
@@ -24,6 +27,8 @@ export class NavigationComponent implements OnInit, AfterViewInit, AfterContentC
     if(this._cartService.getProductsCart()) {
       this.numProducts = this._cartService.getProductsCart().length;
     }
+    this.pointsUser = parseInt(localStorage.getItem("pointsUser"));
+    // this.getInfoUser();
   }
   
   ngAfterViewInit(): void {
@@ -36,7 +41,7 @@ export class NavigationComponent implements OnInit, AfterViewInit, AfterContentC
     @Inject(DOCUMENT) private document: Document,
     private _cartService: CartService
     ) { 
-      this.getInfoUser();
+      
     }
 
     // @HostListener('scroll', ['$event']) // for scroll events of the current element
@@ -57,11 +62,12 @@ export class NavigationComponent implements OnInit, AfterViewInit, AfterContentC
   }
 
   ngOnInit() {
+    this.getInfoUser();
   }
 
   closeSession() {
-    localStorage.removeItem("infoUser");
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("pointsUser");
     this.user = null;
   }
-
 }

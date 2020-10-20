@@ -1,0 +1,63 @@
+<app-loader [loading]="loading"></app-loader>
+<p-toast position="top-right" class="custom-toast"></p-toast>
+<app-navigation></app-navigation>
+<!-- Page Content -->
+<div class="container mt-3 mb-3">
+  <div class="mt-3 d-flex justify-content-between">
+    <h2 class="text-red">Resumen de tu compra</h2>
+    <div class="">
+        <strong>Comprobante: </strong> <p>{{comprobante}}</p>
+    </div>
+    <div class="">
+        <strong>Fecha: </strong> <p>{{datePurchase | date:'medium'}}</p>
+    </div>
+  </div>
+  <div *ngIf="products">
+    <table class="table table-hover text-center">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Producto</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center" *ngFor="let product of products">
+          <td>{{product.id_Producto}}</td>
+          <td>{{product.nombre_Producto | limitedText: 50}}</td>
+          <td>{{product.descripcion | limitedText: 50}}</td>
+          <td>{{product.precio}} pts</td>
+          <td>{{product.cantidad}}</td>
+          <td>{{product.precio * product.cantidad}} pts</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr>
+  <div class="d-flex justify-content-end">
+      <div class="">
+        <p class="prize"><strong>Total: </strong>{{totalAmount | number}} pts</p>
+      </div>
+  </div>
+  <ng-container *ngIf="pointsUser < totalAmount && !purchaseSuccess">
+    <div class="d-flex justify-content-end">
+      <strong class="ivalid-price">¡Tus puntos son insuficientes para esta compra!</strong>
+    </div>
+  </ng-container>
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-outline-success mr-3" (click)="purchase()" [disabled]="pointsUser < totalAmount || purchaseSuccess">Comprar</button>
+    <button class="btn btn-outline-danger" [routerLink]="['/cartShopping']" >Regresar</button>
+  </div>
+  <ng-container *ngIf="purchaseSuccess">
+      <div class="d-flex justify-content-end mt-2">
+          <strong class="ivalid-price">¡Gracias por tu compra!</strong>
+        </div>
+  </ng-container>
+</div>
+<!-- /.container -->
+<app-footer></app-footer>
+<app-modal-purchase-success></app-modal-purchase-success>

@@ -11,6 +11,11 @@ import { IRole, Role } from 'src/app/models/Role.model';
   providedIn: 'root'
 })
 export class UsersService extends ServiceService<any> {
+  
+  
+  public validateUser(username: any, password: any): Observable<any> {
+    return this.executeGet(`/login/${username}/${password}`).pipe(map((resp: IUser) => resp));
+  }
 
   constructor(private http: HttpClient) {
     super();

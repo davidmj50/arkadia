@@ -1,15 +1,19 @@
-<app-navigation></app-navigation>
+<app-loader [loading]="loading"></app-loader>
+<p-toast key="toastAdmin" position="top-right"class="custom-toast"></p-toast>
+<app-navigation [pointsUser]="pointsUser"></app-navigation>
 <form class="form-signin">
   <img class="mb-4" src="../assets/img/logo.png" alt="" width="180" height="">
   <h1 class="h3 mb-3 font-weight-normal">Inicia sesión</h1>
-  <label for="inputEmail" class="sr-only">Username</label>
-  <input type="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Recordarme
-    </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+  <form action="" [formGroup]="formLogin" (ngSubmit)="login()">
+    <label for="inputEmail" class="sr-only">Username</label>
+    <input type="email" formControlName="username" class="form-control" placeholder="Username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password"  formControlName="password" class="form-control" placeholder="Password" required>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Recordarme
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+  </form>
 </form>

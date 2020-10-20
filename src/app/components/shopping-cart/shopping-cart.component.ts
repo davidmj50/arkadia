@@ -1,9 +1,10 @@
 import { Component, OnInit, DoCheck, AfterContentChecked, Input } from '@angular/core';
-import { IItem } from 'src/app/models/Item.model';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
 import { IProduct } from 'src/app/models/Product.model';
 import { MessageService } from 'primeng/api';
+
+declare const $: any;
 
 @Component({
   selector: 'app-shopping-cart',
@@ -76,5 +77,16 @@ export class ShoppingCartComponent implements OnInit, AfterContentChecked {
       product.cantidad--;
       this.calculatePrice();
     }
+  }
+
+  public purchase() {
+    if(localStorage.getItem("userInfo")){
+      this.router.navigate(['/purchase']);
+    } else {
+      $('.bd-purchasing-modal-lg').modal({
+        show: true
+      });
+    }
+    // $(idModal).modal('hide');
   }
 }

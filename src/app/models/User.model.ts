@@ -1,7 +1,7 @@
 import { IRole, Role } from "./Role.model";
 
 export interface IUser {
-    id?: number;
+    id_Usuario?: number;
     eMail: string;
     password: string;
     userName: string;
@@ -14,7 +14,7 @@ export interface IUser {
 }
 
 export class User {
-    id?: number;
+    id_Usuario?: number;
     eMail: string;
     password: string;
     userName: string;

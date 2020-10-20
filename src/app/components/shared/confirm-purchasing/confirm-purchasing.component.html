@@ -3,19 +3,16 @@
   aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <h4 class="modal-title" id="myLargeModalLabel">Resumen de tu compra</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div>
-          <div class="modal-body overflow-auto">
-          </div>
-          <div class="modal-footer">
-          </div>
+      <!-- <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div> -->
+      <div class="modal-body">
+        <div class="alert alert-danger" role="alert">
+          <h4>No has iniciado sesión</h4>
+          <p>Debes <a [routerLink]="['/login']" data-dismiss="modal">Iniciar sesión</a> o <a
+              [routerLink]="['/register']">crea una cuenta</a> para continuar con la compra!</p>
         </div>
       </div>
     </div>

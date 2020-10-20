@@ -21,7 +21,7 @@
                   </div>
                 </div>
                 <div class="col-md-8">
-                  <p class="limitado">{{item.descripcion}}</p>
+                  <p class="limitado">{{item.descripcion | limitedText: 200}}</p>
                   <div class="form-group row">
                     <label for="" class="col-sm-2 col-form-label">Cantidad: </label>
                     <select class="col-sm-2 form-control"[(ngModel)]="item.cantidad">
@@ -39,7 +39,7 @@
           <div class="modal-footer">
             <span class="prize mr-auto"><strong>Total: {{4500 | number}} pts</strong></span>
             <button type="button" class="btn btn-outline-success" [routerLink]="['/cartShopping']" routerLinkActive="router-link-active" data-dismiss="modal">Ver Carrito</button>
-            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Ir a pagar</button>
+            <button type="button" class="btn btn-outline-danger" [routerLink]="['/purchase']" data-dismiss="modal">Ir a pagar</button>
           </div>
         </div>
 

@@ -31,6 +31,8 @@ import { ButtonModule } from 'primeng/button';
 import { NumbersCollectionPipe } from './pipes/numbers-collection.pipe';
 import { LimitedTextPipe } from './pipes/limited-text.pipe';
 import { ConfirmPurchasingComponent } from './components/shared/confirm-purchasing/confirm-purchasing.component';
+import { PurchasingComponent } from './components/purchasing/purchasing.component';
+import { ModalPurchaseSuccessComponent } from './components/modal-purchase-success/modal-purchase-success.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { ConfirmPurchasingComponent } from './components/shared/confirm-purchasi
     ModalShoppingCartComponent,
     NumbersCollectionPipe,
     LimitedTextPipe,
-    ConfirmPurchasingComponent
+    ConfirmPurchasingComponent,
+    PurchasingComponent,
+    ModalPurchaseSuccessComponent
   ],
   imports: [
     BrowserModule,
