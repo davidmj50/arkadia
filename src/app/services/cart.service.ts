@@ -55,4 +55,8 @@ export class CartService {
   public getProductsCart() : IProduct[] {
     return this.cart.getValue();
   }
+
+  public removeAll() {
+    this.cart = new BehaviorSubject<Array<IProduct>>(null);
+  }
 }

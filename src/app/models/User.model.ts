@@ -1,29 +1,30 @@
-import { IRole } from "./Role.model";
+import { IRole, Role } from "./Role.model";
 
 export interface IUser {
-    id?: number;
-    email: string;
+    id_Usuario?: number;
+    eMail: string;
     password: string;
     userName: string;
     nombre: string;
     apellido: string;
     direccion: string;
     telefono: string;
-    fecha_Nacimiento: Date;
-    id_rol: number;
+    fecha_Nacimiento: string;
+    rol: IRole;
 }
 
 export class User {
-    id?: number;
-    email: string;
+    id_Usuario?: number;
+    eMail: string;
     password: string;
     userName: string;
     nombre: string;
     apellido: string;
     direccion: string;
     telefono: string;
-    fecha_Nacimiento: Date;
-    id_rol: number;
+    fecha_Nacimiento: string;
+    // id_rol: number;
+    rol: Role;
 
     constructor(email: string,
         password: string,
@@ -32,9 +33,9 @@ export class User {
         apellido: string,
         direccion: string,
         telefono: string,
-        fecha_Nacimiento: Date,
-        id_rol: number) {
-          this.email = email;
+        fecha_Nacimiento: string,
+        idRole: number) {
+          this.eMail = email;
           this.password = password;
           this.userName = userName;
           this.nombre = nombre;
@@ -42,6 +43,6 @@ export class User {
           this.direccion = direccion;
           this.telefono = telefono;
           this.fecha_Nacimiento = fecha_Nacimiento;
-          this.id_rol = id_rol;
+          this.rol = new Role(idRole, "");
     }
 }

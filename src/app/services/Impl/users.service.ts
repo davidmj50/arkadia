@@ -5,12 +5,17 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IUser, User } from 'src/app/models/User.model';
-import { IRole } from 'src/app/models/Role.model';
+import { IRole, Role } from 'src/app/models/Role.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService extends ServiceService<any> {
+  
+  
+  public validateUser(username: any, password: any): Observable<any> {
+    return this.executeGet(`/login/${username}/${password}`).pipe(map((resp: IUser) => resp));
+  }
 
   constructor(private http: HttpClient) {
     super();
@@ -32,7 +37,7 @@ export class UsersService extends ServiceService<any> {
   }
 
   public createUser(
-    email: string,
+    eMail: string,
     userName: string,
     nombre: string,
     apellido: string,
@@ -41,20 +46,20 @@ export class UsersService extends ServiceService<any> {
     telefono: string,
     fecha_Nacimiento: Date ): Observable<IUser> {
     const user: User = new User(
-      email,
+      eMail,
       userName,
       nombre,
       apellido,
       password,
       direccion,
       telefono,
-      fecha_Nacimiento,
+      fecha_Nacimiento.toISOString(),
       1);
     return this.post(user, '').pipe(map((resp: IUser) => resp));
   }
 
   public updateUser(
-    email: string,
+    eMail: string,
     userName: string,
     nombre: string,
     apellido: string,
@@ -62,20 +67,23 @@ export class UsersService extends ServiceService<any> {
     direccion: string,
     telefono: string,
     fecha_Nacimiento: Date,
-    idUser: string
+    idUser: string,
+    idRole: number,
+
   ): Observable<IUser> {
-    const user: User = new User(
-      email,
+    let user: User = new User(
+      eMail,
+      password,
       userName,
       nombre,
       apellido,
-      password,
       direccion,
       telefono,
-      fecha_Nacimiento,
-      1
+      fecha_Nacimiento.toISOString(),
+      idRole
     );
     const path = `/${idUser}`;
+    console.log(user);
     return this.update(user, path).pipe(map((resp: IUser) => resp));
   }
 

@@ -10,12 +10,13 @@ import {
   FormBuilder
 } from '@angular/forms';
 import { MessageService } from 'primeng/api';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-edit-users',
   templateUrl: './edit-users.component.html',
   styleUrls: ['./edit-users.component.css'],
-  providers: [MessageService]
+  providers: [MessageService, DatePipe]
 })
 export class EditUsersComponent implements OnInit {
   public idUser: string;
@@ -27,11 +28,13 @@ export class EditUsersComponent implements OnInit {
     private _userservice: UsersService,
     private route: ActivatedRoute,
     private formbuilder: FormBuilder,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.formUsers = this.formbuilder.group({
       userName: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
       nombre: new FormControl('', Validators.required),
       apellido: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
@@ -54,10 +57,16 @@ export class EditUsersComponent implements OnInit {
         (user: IUser) => {
           this.loading = true;
           this.user = user;
+          console.log(this.user);
           this.formUsers.setValue({
             userName: this.user.userName,
-            nombre: this.user.nombre
-           
+            nombre: this.user.nombre,
+            password: this.user.password,
+            apellido: this.user.apellido,
+            email: this.user.eMail,
+            direccion: this.user.direccion,
+            telefono: this.user.telefono,
+            fecha_Nacimiento: this.datePipe.transform(this.user.fecha_Nacimiento, 'yyyy-MM-dd')
           });
         },
         error => {
@@ -77,8 +86,9 @@ export class EditUsersComponent implements OnInit {
       this.formUsers.get('password').value,
       this.formUsers.get('direccion').value,
       this.formUsers.get('telefono').value,
-      this.formUsers.get('fecha_Nacimiento').value,
-      this.idUser)
+      new Date(this.formUsers.get('fecha_Nacimiento').value),
+      this.idUser,
+      1)
     .pipe(
       finalize(() => {
         this.loading = false;

@@ -70,19 +70,19 @@
         </div> -->
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4  animate__animated animate__fadeIn" *ngFor="let item of listProducts">
+            <div class="col-lg-4 col-md-6 mb-4  animate__animated animate__fadeIn" *ngFor="let product of outstandingProducts">
                 <div class="card h-100">
-                    <a><img class="card-img-top" [src]="item.img" alt="" (click)="viewProduct(item)"></a>
+                    <a class="m-auto"><img class="card-img-top" [src]="product.imagen" alt="" (click)="viewProduct(product)"></a>
                     <div class="card-body">
                         <p class="text-bold card-title">
-                            <a>{{item.name}}</a>
+                            <a>{{product.nombre_Producto}}</a>
                         </p>
-                        <span class="text-red d-block text-right"><strong>{{item.price | number}} pts</strong></span>
+                        <span class="text-red d-block text-right"><strong>{{product.precio | number}} pts</strong></span>
                         <hr>
-                        <p class="card-text">{{item.description | limitedText: 150}}</p>
+                        <p class="card-text">{{product.descripcion | limitedText: 100}}</p>
                     </div>
                     <div class="card-footer">
-                            <a (click)="addCart(item)" class="btn btn-outline-info btn-block"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a>
+                            <a (click)="addCart(product)" class="btn btn-outline-info btn-block"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a>
                     </div>
                 </div>
             </div>

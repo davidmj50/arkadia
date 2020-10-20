@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { ContactService } from 'src/app/services/Impl/contact.service';
+import { MessageService } from 'primeng/api';
+import { IContact } from 'src/app/models/Contact.model';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
+  providers: [MessageService]
 })
 export class ContactComponent implements OnInit {
 
@@ -14,7 +17,8 @@ export class ContactComponent implements OnInit {
 
   constructor
   (
-    private contactService: ContactService
+    private contactService: ContactService,
+    private messageService: MessageService
   ) 
   { 
     this.contactForm = new FormGroup({
@@ -34,14 +38,15 @@ export class ContactComponent implements OnInit {
       .pipe(
         finalize(() => {
         })
-      ).subscribe((resp: any) => {
-        console.log(resp);
+      ).subscribe((resp: IContact) => {
+        if(resp.id > 0){
+          this.messageService.add({severity:'success', key: 'toastAdmin',summary:'Mensaje enviado exitosamente!', detail:''});
+        }
       },
       error => {
-        console.log(error.error);
+        this.messageService.add({severity:'success', key: 'toastAdmin',summary:'Hubo un error al enviar el mensaje', detail:''});
       });
     } else {
-      alert('Debe ingresar todos los campos');
     }
     
     

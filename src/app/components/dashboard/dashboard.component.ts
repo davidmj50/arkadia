@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 declare var $: any;
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,7 @@ declare var $: any;
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.setToggle();
@@ -19,5 +20,10 @@ export class DashboardComponent implements OnInit {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
+  }
+
+  closeSession() {
+    localStorage.removeItem("userInfo");
+    this.router.navigate(["/login"]);
   }
 }
