@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IUser } from 'src/app/models/User.model';
+import { IUser, User } from 'src/app/models/User.model';
 import { UsersService } from 'src/app/services/Impl/users.service';
 import { finalize } from 'rxjs/operators';
 import { MessageService } from 'primeng/api';
@@ -29,6 +29,19 @@ export class ListUsersComponent implements OnInit {
       this.loading = true;
       console.log(resp);
       this.users = resp;
+    });
+  }
+
+  Delete (idUser: string) {
+    console.log('Ingrese a eliminar');
+    console.log(idUser);
+    this.usersService.DeleteUser(idUser).pipe(
+      finalize(() => {
+        this.loading = false;
+      })
+    ).subscribe(data => {
+      this.loading = true;
+      this.ngOnInit();
     });
   }
 }

@@ -26,7 +26,7 @@ export class User {
     // id_rol: number;
     rol: Role;
 
-    constructor(email: string,
+    constructor(eMail: string,
         password: string,
         userName: string,
         nombre: string,
@@ -35,7 +35,7 @@ export class User {
         telefono: string,
         fecha_Nacimiento: string,
         idRole: number) {
-          this.eMail = email;
+          this.eMail = eMail;
           this.password = password;
           this.userName = userName;
           this.nombre = nombre;

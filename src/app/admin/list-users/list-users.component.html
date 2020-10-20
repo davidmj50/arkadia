@@ -25,7 +25,7 @@
                     <td>{{user.telefono}}</td>
                     <td>
                         <button class="btn btn-warning mr-1" [routerLink]="['/dashboard/admin/editUser', user.id_Usuario]">Editar</button>
-                        <button class="btn btn-danger">Eliminar</button>
+                        <button (click)="Delete(user.id_Usuario)" class="btn btn-danger">Eliminar</button>
                     </td>
                 </tr>
             </tbody>

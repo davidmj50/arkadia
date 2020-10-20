@@ -82,4 +82,10 @@ export class UsersService extends ServiceService<any> {
     return this.update(user, path).pipe(map((resp: IUser) => resp));
   }
 
+  DeleteUser(idUser: string): Observable<IUser> {
+    const path = `/${idUser}`;
+    console.log(path);
+    return this.delete(path).pipe(map((resp: IUser) => resp));
+  }
+
 }
