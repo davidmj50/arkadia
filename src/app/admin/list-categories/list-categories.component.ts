@@ -14,8 +14,8 @@ export class ListCategoriesComponent implements OnInit {
 
   public categories: ICategory[] = [];
 
-  public loading: boolean = false;
-  
+  public loading = false;
+
   constructor(
     private categoriesService: CategoriesService,
     private messageService: MessageService) { }
@@ -33,13 +33,30 @@ export class ListCategoriesComponent implements OnInit {
       this.loading = true;
       this.categories = resp;
     }, error => {
-      this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Antención', detail:'Ha ocurrido un error al cargar las categorias!'});
+      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+      detail: 'Ha ocurrido un error al cargar las categorias!'});
     });
   }
 
-  public DeleteCategories(category: ICategory) {
-    this.categoriesService.delete(category.id.toString()).subscribe(data => {
-      alert('Se elimino con exito....');
-    });
+  Delete (idCategory: string) {
+    console.log('Ingrese a eliminar');
+    console.log(idCategory);
+    this.categoriesService.deleteCategory(idCategory).pipe(
+      finalize(() => {
+        this.loading = false;
+      })
+    ).subscribe(data => {
+      this.messageService.add({severity: 'success', key: 'toastAdmin', summary: 'Información',
+      detail: 'La categoria se ha eliminado correctamente!'});
+      this.loading = true;
+      this.ngOnInit();
+    },
+    error => {
+      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+      detail: 'Ha ocurrido un error al eliminar!'});
+      console.log(error);
+    }
+    );
   }
+
 }

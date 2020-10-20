@@ -29,6 +29,9 @@ export class ListUsersComponent implements OnInit {
       this.loading = true;
       console.log(resp);
       this.users = resp;
+    }, error => {
+      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+      detail: 'Ha ocurrido un error al cargar los usuarios!'});
     });
   }
 
@@ -40,8 +43,16 @@ export class ListUsersComponent implements OnInit {
         this.loading = false;
       })
     ).subscribe(data => {
+      this.messageService.add({severity: 'success', key: 'toastAdmin', summary: 'Información',
+      detail: 'El usuario se ha eliminado correctamente!'});
       this.loading = true;
       this.ngOnInit();
-    });
+    },
+    error => {
+      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+      detail: 'Ha ocurrido un error al eliminar!'});
+      console.log(error);
+    }
+    );
   }
 }

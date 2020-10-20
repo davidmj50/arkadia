@@ -22,7 +22,7 @@
                     <td>{{category.descripcion}}</td>
                     <td>
                         <button class="btn btn-warning mr-1" [routerLink]="['/dashboard/admin/editCategories', category.id_Categoria]">Editar</button>
-                        <button (click)="DeleteCategories(category)" class="btn btn-danger">Eliminar</button>
+                        <button (click)="Delete(category.id_Categoria)" class="btn btn-danger">Eliminar</button>
                     </td>
                 </tr>
             </tbody>
