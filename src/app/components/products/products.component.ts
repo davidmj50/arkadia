@@ -112,7 +112,8 @@ export class ProductsComponent implements OnInit, AfterContentChecked, OnDestroy
       this.products = resp;
       console.log(resp);
     }, error => {
-      this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Atención', detail:'Ha ocurrido un error al cargar los productos por categorias!'});
+      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Atención',
+      detail: 'Ha ocurrido un error al cargar los productos por categorias!'});
     });
   }
 

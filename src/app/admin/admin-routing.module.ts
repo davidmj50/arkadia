@@ -15,7 +15,7 @@ import { AttendMessagesComponent } from './attend-messages/attend-messages.compo
 const routes: Routes = [
   { path: 'addProducts', component: AddProductsComponent },
   { path: 'products', component: ListProductsComponent },
-  { path: 'editProducts', component: EditProductsComponent },
+  { path: 'editProducts/:id', component: EditProductsComponent },
   { path: 'addCategories', component: AddCategoriesComponent },
   { path: 'categories', component: ListCategoriesComponent },
   { path: 'editCategories/:id', component: EditCategoriesComponent },

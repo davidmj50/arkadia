@@ -17,6 +17,8 @@ import {ToastModule} from 'primeng/toast';
 import { AdminMessagesComponent } from './admin-messages/admin-messages.component';
 import { AttendMessagesComponent } from './attend-messages/attend-messages.component';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -24,7 +26,7 @@ import { AttendMessagesComponent } from './attend-messages/attend-messages.compo
     FormsModule,
     ReactiveFormsModule,
     LoaderModule,
-    ToastModule
+    ToastModule,
   ],
   declarations: [
     ListProductsComponent,

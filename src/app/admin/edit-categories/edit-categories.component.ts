@@ -57,7 +57,7 @@ export class EditCategoriesComponent implements OnInit {
           });
         },
         error => {
-          this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+          this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Atención',
           detail: 'Ha ocurrido un error al cargar la categoría!'});
           console.log(error);
         }
@@ -82,7 +82,7 @@ export class EditCategoriesComponent implements OnInit {
         detail: 'La categoría se ha editado correctamente!'});
       },
       error => {
-        this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+        this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Atención',
         detail: 'Ha ocurrido un error al editar!'});
         console.log(error);
       }

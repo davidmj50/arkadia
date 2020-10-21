@@ -5,12 +5,13 @@ export interface ICategory {
 }
 
 export class Category {
-    id?: number;
+    id_Categoria?: number;
     nombre_Categoria: string;
     descripcion: string;
 
-    constructor(nombre: string, descripcion: string) {
+    constructor(nombre: string, descripcion: string, id_categoria: number) {
         this.nombre_Categoria = nombre;
         this.descripcion = descripcion;
+        this.id_Categoria = id_categoria;
     }
 }

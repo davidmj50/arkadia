@@ -2,14 +2,14 @@
 <div class="card mt-3">
     <div class="card-header">
         <div class="d-flex justify-content-between p-1">
-            <h3>Usuarios</h3>
+            <h3>Usuarios administradores</h3>
             <button [routerLink]="['/dashboard/admin/addUsers']" class="btn btn-primary"><i class="fas fa-plus"></i></button>
         </div>
         <table class="table table-hover text-center">
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>UserName</th>
+                    <th>Usuario</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
                     <th>Telefono</th>
@@ -25,7 +25,7 @@
                     <td>{{user.telefono}}</td>
                     <td>
                         <button class="btn btn-warning mr-1" [routerLink]="['/dashboard/admin/editUser', user.id_Usuario]">Editar</button>
-                        <button class="btn btn-danger">Eliminar</button>
+                        <button (click)="Delete(user.id_Usuario)" class="btn btn-danger">Eliminar</button>
                     </td>
                 </tr>
             </tbody>

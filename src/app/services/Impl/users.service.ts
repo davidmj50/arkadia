@@ -71,7 +71,7 @@ export class UsersService extends ServiceService<any> {
     idRole: number,
 
   ): Observable<IUser> {
-    let user: User = new User(
+    const user: User = new User(
       eMail,
       password,
       userName,
@@ -98,6 +98,11 @@ export class UsersService extends ServiceService<any> {
     let userModel: User = new User (email, password, userName, nombre, apellido ,direccion, telefono, fecha_Nacimiento, 2);
     console.log(userModel);
     return this.post(userModel,'');
+  }
+
+  DeleteUser(idUser: string): Observable<IUser> {
+    const path = `/${idUser}`;
+    return this.executeDelete(path).pipe(map((resp: IUser) => resp));
   }
 
 }
