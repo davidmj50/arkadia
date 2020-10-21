@@ -9,6 +9,8 @@ import { AddCategoriesComponent } from './add-categories/add-categories.componen
 import { ListUsersComponent } from './list-users/list-users.component';
 import { EditUsersComponent } from './edit-users/edit-users.component';
 import { AddUsersComponent } from './add-users/add-users.component';
+import { AdminMessagesComponent } from './admin-messages/admin-messages.component';
+import { AttendMessagesComponent } from './attend-messages/attend-messages.component';
 
 const routes: Routes = [
   { path: 'addProducts', component: AddProductsComponent },
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'addUsers', component: AddUsersComponent },
   { path: 'users', component: ListUsersComponent },
   { path: 'editUser/:id', component: EditUsersComponent },
+  { path: '', component: AdminMessagesComponent },
+  { path: 'attendMessage/:id', component: AttendMessagesComponent },
 ];
 
 @NgModule({

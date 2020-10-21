@@ -20,6 +20,21 @@ export class ContactService extends ServiceService<any>{
 
   public saveMessage(email: string, message: string) : Observable<IContact> {
     let contactModel:Contact= new Contact (null, email, message, null);
-    return this.post(contactModel, '').pipe(map((resp: IContact) => resp));;
+    return this.post(contactModel, '').pipe(map((resp: IContact) => resp));
+  }
+
+  public getContactMessages() : Observable<IContact[]>  {
+    return this.executeGet('').pipe(map((resp: IContact[]) => resp));
+  }
+
+  public getContactMessageById(idMessage: string): Observable<IContact>  {
+    let path = `/${idMessage}`;
+    return this.executeGet(path).pipe(map((resp: IContact) => resp));
+  }
+
+  public updateStatus(message: IContact, value: boolean) {
+    let contactModel : Contact = new Contact (message.id, message.eMail, message.mensaje, value);
+    let path = `/${message.id}`;
+    return this.update(contactModel, path).pipe(map((resp: IContact) => resp));
   }
 }

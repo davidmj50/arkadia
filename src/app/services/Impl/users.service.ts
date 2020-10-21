@@ -86,5 +86,19 @@ export class UsersService extends ServiceService<any> {
     console.log(user);
     return this.update(user, path).pipe(map((resp: IUser) => resp));
   }
+  
+  public createUserCLient(email: string,
+    userName: string,
+    nombre: string,
+    apellido: string,
+    password: string,
+    direccion: string,
+    telefono: string,
+    fecha_Nacimiento: string) : Observable<any> {
+    let userModel: User = new User (email, password, userName, nombre, apellido ,direccion, telefono, fecha_Nacimiento, 2);
+    console.log(userModel);
+    return this.post(userModel,'');
+  }
 
 }
+

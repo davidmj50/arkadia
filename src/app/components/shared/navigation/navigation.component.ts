@@ -2,6 +2,10 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Inject, HostLi
 import { DOCUMENT } from '@angular/platform-browser';
 import { CartService } from 'src/app/services/cart.service';
 import { IUser } from 'src/app/models/User.model';
+import { ProductsService } from 'src/app/services/Impl/products.service';
+import { finalize } from 'rxjs/operators';
+import { IProduct } from 'src/app/models/Product.model';
+import { Router } from '@angular/router';
 
 declare const $ : any;
 
@@ -11,10 +15,12 @@ declare const $ : any;
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit, AfterViewInit, AfterContentChecked {
-  
+
   public user: IUser;
   @Input()
   public pointsUser: number = 0;
+  public loading: boolean;
+  public products: IProduct[];
 
   public getInfoUser() {
     // console.log(localStorage.getItem("pointsUser"));
@@ -39,7 +45,9 @@ export class NavigationComponent implements OnInit, AfterViewInit, AfterContentC
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private _cartService: CartService
+    private _cartService: CartService,
+    private productService: ProductsService,
+    private router: Router,
     ) { 
       
     }
@@ -69,5 +77,9 @@ export class NavigationComponent implements OnInit, AfterViewInit, AfterContentC
     localStorage.removeItem("userInfo");
     localStorage.removeItem("pointsUser");
     this.user = null;
+  }
+
+  search(keyword: string) {
+    this.router.navigate(['/products'], {queryParams: { search: keyword}});
   }
 }

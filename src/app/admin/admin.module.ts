@@ -14,6 +14,8 @@ import { EditCategoriesComponent } from './edit-categories/edit-categories.compo
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoaderModule } from '../components/shared/loader/loader.module';
 import {ToastModule} from 'primeng/toast';
+import { AdminMessagesComponent } from './admin-messages/admin-messages.component';
+import { AttendMessagesComponent } from './attend-messages/attend-messages.component';
 
 @NgModule({
   imports: [
@@ -33,7 +35,9 @@ import {ToastModule} from 'primeng/toast';
     AddUsersComponent,
     ListCategoriesComponent,
     AddCategoriesComponent,
-    EditCategoriesComponent
+    EditCategoriesComponent,
+    AdminMessagesComponent,
+    AttendMessagesComponent
   ],
   providers: [
   ]

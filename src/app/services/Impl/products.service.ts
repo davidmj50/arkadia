@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class ProductsService extends ServiceService<IProduct>{
   
+  
   public getProduct(idProduct: number) {
     const path = `/${idProduct}`;
     return this.executeGet(path).pipe(map((resp: IProduct) => resp));
@@ -32,6 +33,11 @@ export class ProductsService extends ServiceService<IProduct>{
 
   public getProductsByCategoryId(idCategory: string): Observable<IProduct[]> {
     const path = `/prodcategoria/${idCategory}`;
+    return this.executeGet(path).pipe(map((resp: IProduct[]) => resp));
+  }
+
+  public getProductsSearching(keyword: string) {
+    const path = `/producsearch/${keyword}`;
     return this.executeGet(path).pipe(map((resp: IProduct[]) => resp));
   }
 }

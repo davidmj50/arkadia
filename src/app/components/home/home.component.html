@@ -72,14 +72,14 @@
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4  animate__animated animate__fadeIn" *ngFor="let product of outstandingProducts">
                 <div class="card h-100">
-                    <a class="m-auto"><img class="card-img-top" [src]="product.imagen" alt="" (click)="viewProduct(product)"></a>
+                    <a class="m-auto"><img class="card-img-top" [src]="product?.imagen" alt="" (click)="viewProduct(product)"></a>
                     <div class="card-body">
                         <p class="text-bold card-title">
-                            <a>{{product.nombre_Producto}}</a>
+                            <a>{{product?.nombre_Producto}}</a>
                         </p>
-                        <span class="text-red d-block text-right"><strong>{{product.precio | number}} pts</strong></span>
+                        <span class="text-red d-block text-right"><strong>{{product?.precio | number}} pts</strong></span>
                         <hr>
-                        <p class="card-text">{{product.descripcion | limitedText: 100}}</p>
+                        <p class="card-text">{{product?.descripcion | limitedText: 100}}</p>
                     </div>
                     <div class="card-footer">
                             <a (click)="addCart(product)" class="btn btn-outline-info btn-block"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a>
@@ -148,20 +148,20 @@
             </div>
         </div>
     </div> -->
-    <div class="row">
+    <div class="row" *ngIf="products">
 
         <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of products">
             <div class="card h-100">
-                <a (click)="viewProduct(product.id_Producto)" style="margin: auto;"><img class="card-img-top" [src]="product.imagen" alt=""></a>
+                <a (click)="viewProduct(product.id_Producto)" style="margin: auto;"><img class="card-img-top" [src]="product?.imagen" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a>{{product.nombre_Producto}}</a>
+                        <a>{{product?.nombre_Producto}}</a>
                     </h4>
                     <div class="d-flex justify-content-between">
-                        <h5 class="text-red">{{product.precio | number}} ptos</h5>
-                        <strong>Stock <span>{{product.stock}}</span></strong>
+                        <h5 class="text-red">{{product?.precio | number}} ptos</h5>
+                        <strong>Stock <span>{{product?.stock}}</span></strong>
                     </div>
-                    <p class="card-text">{{product.descripcion | limitedText: 150}}</p>
+                    <p class="card-text">{{product?.descripcion | limitedText: 150}}</p>
                 </div>
                 <div class="card-footer">
                         <button (click)="addCart(product)"  [disabled]="product.stock == 0" class="btn btn-outline-info btn-block"><i class="fa fa-shopping-cart"></i> Agregar al carrito</button>

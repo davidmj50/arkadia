@@ -37,7 +37,7 @@ const routes: Routes = [
                 loadChildren: adminModule
             },
             { 
-                path: 'nofound', 
+                path: 'dashboard/nofound', 
                 component: NofoundComponent
             },
             {

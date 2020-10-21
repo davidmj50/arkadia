@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentChecked, OnDestroy } from '@angular/core';
 import { ProductsService } from 'src/app/services/Impl/products.service';
-import { finalize } from 'rxjs/operators';
+import { finalize, filter } from 'rxjs/operators';
 import { IProduct } from 'src/app/models/Product.model';
 import { MessageService } from 'primeng/api';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -13,29 +13,82 @@ import { CartService } from 'src/app/services/cart.service';
   providers: [MessageService]
 })
 
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, AfterContentChecked, OnDestroy {
+  
+  ngAfterContentChecked(): void {
+    // let keyword = undefined;
+    // this.routerActived.queryParams.subscribe(params => {
+    //   keyword = params["search"];
+    // });
+
+    // if(keyword && this.keywordSearch && (keyword !== this.keywordSearch)){
+    //   this.keywordSearch = keyword;
+    //   console.log(keyword, this.keywordSearch);
+
+    //   this.searchProducts();
+    // }
+    
+  }
 
   private nameCategory : string = "";
   public loading: boolean = false;
   public products: IProduct[] = [];
   public idCategory: string;
+  public keywordSearch: string;
+  public isSearched: boolean = false;
 
   constructor(private productsService: ProductsService,
     private messageService: MessageService,
     private routerActived: ActivatedRoute,
     private router: Router,
-    private _cartService: CartService) { }
+    private _cartService: CartService) { 
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)  
+      ).subscribe((event: NavigationEnd) => {
+        // console.log(event.url);
+        this.getInfo();
+      });
+    }
 
   ngOnInit() {
+    this.getInfo();
+  }
+  getInfo() {
     this.routerActived.queryParams.subscribe(params => {
       this.idCategory = params["idCategory"];
+      this.keywordSearch = params["search"];
     });
     if(this.idCategory) {
       this.loadProductsByCategoryId();
+    } else if(this.keywordSearch) {
+      this.searchProducts();
+      this.isSearched = true;
     } else {
       this.loadGeneralProducts();
     }
   }
+
+  searchProducts() {
+    this.productsService
+      .getProductsSearching(this.keywordSearch)
+      .pipe(
+        finalize(() => {
+          this.loading = false;
+        })
+      )
+      .subscribe(
+        (products: IProduct[]) => {
+          this.loading = true;
+          this.products = products;
+          // console.log(this.products);
+        },
+        error => {
+          this.messageService.add({severity:'error',summary:'Atención', detail:'Ha ocurrido un error al buscar los productos !'});
+          console.log(error);
+        }
+      );
+  }
+
   loadGeneralProducts() {
     this.productsService.getProducts().pipe(
       finalize(() => {
@@ -75,5 +128,8 @@ export class ProductsComponent implements OnInit {
       skipLocationChange: false
     });
     window.scrollTo(0, 0);
+  }
+
+  public ngOnDestroy(): void {
   }
 }
