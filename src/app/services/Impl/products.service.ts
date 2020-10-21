@@ -11,8 +11,8 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 
-export class ProductsService extends ServiceService<IProduct>{
-  
+export class ProductsService extends ServiceService<IProduct> {
+
   public getProduct(idProduct: number) {
     const path = `/${idProduct}`;
     return this.executeGet(path).pipe(map((resp: IProduct) => resp));
@@ -47,9 +47,9 @@ export class ProductsService extends ServiceService<IProduct>{
     return this.executeDelete(path).pipe(map((resp: IProduct) => resp));
   }
 
-  public GetProduct(idProduct: string): Observable<IProduct> {
+  public GetProduct(idProduct: string): Observable<Product> {
     const path = `/${idProduct}`;
-    return this.executeGet(path).pipe(map((resp: IProduct) => resp));
+    return this.executeGet(path).pipe(map((resp: Product) => resp));
   }
 
   public createProduct(
@@ -81,7 +81,7 @@ export class ProductsService extends ServiceService<IProduct>{
       idCategory: number,
       idproduct: string
 
-  ): Observable<IProduct> {
+  ): Observable<Product> {
       const product: Product = new Product(
         producName,
         descripcion,
@@ -92,7 +92,7 @@ export class ProductsService extends ServiceService<IProduct>{
     );
     const path = `/${idproduct}`;
     console.log(product);
-    return this.update(product, path).pipe(map((resp: IProduct) => resp));
+    return this.update(product, path).pipe(map((resp: Product) => resp));
   }
 
 }

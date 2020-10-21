@@ -81,5 +81,3 @@ export class AddProductsComponent implements OnInit {
 
 
 }
-
-}
