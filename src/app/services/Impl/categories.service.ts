@@ -32,12 +32,13 @@ export class CategoriesService extends ServiceService<any> {
   }
 
   public createCategory(name: string, description: string): Observable<ICategory> {
-    const category: Category = new Category(name, description);
+    const category: Category = new Category(name, description, 0);
     return this.post(category, '').pipe(map((resp: ICategory) => resp));
   }
 
   public updateCategory(name: string, description: string, idCategory: string): Observable<ICategory> {
-    const category: Category = new Category(name, description);
+    // tslint:disable-next-line: radix
+    const category: Category = new Category(name, description, parseInt(idCategory));
     const path = `/${idCategory}`;
     return this.update(category, path).pipe(map((resp: ICategory) => resp));
   }

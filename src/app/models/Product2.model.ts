@@ -1,4 +1,4 @@
-import { ICategory, Category } from './Category.model';
+import { ICategory2, Category } from './Category.model';
 
 export interface IProduct {
     id_Producto?: number;
@@ -7,7 +7,7 @@ export interface IProduct {
     precio: number;
     stock: number;
     imagen: string;
-    categoria: ICategory;
+    categoria: ICategory2;
 }
 
 export class Product {

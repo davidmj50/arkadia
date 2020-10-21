@@ -15,3 +15,8 @@ export class Category {
         this.id_Categoria = id_categoria;
     }
 }
+export interface ICategory2 {
+    id_Categoria: number;
+    nombre_Categoria: string;
+    descripcion: string;
+}

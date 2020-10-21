@@ -11,7 +11,7 @@ import {
 } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { CategoriesService } from 'src/app/services/Impl/categories.service';
-import { ICategory, Category } from 'src/app/models/Category.model';
+import { Category } from 'src/app/models/Category.model';
 
 @Component({
   selector: 'app-edit-products',
@@ -24,7 +24,7 @@ export class EditProductsComponent implements OnInit {
   public product: IProduct;
   public loading = false;
   public formProduct: FormGroup;
-  public categories: ICategory[] = [];
+  public categories: Category[] = [];
   constructor(
     private service: ProductsService,
     private categoryservice: CategoriesService,
@@ -79,7 +79,7 @@ export class EditProductsComponent implements OnInit {
       finalize(() => {
         this.loading = false;
       })
-    ).subscribe((resp: ICategory[]) => {
+    ).subscribe((resp: Category[]) => {
       this.loading = true;
       this.categories = resp;
     }, error => {
@@ -89,7 +89,6 @@ export class EditProductsComponent implements OnInit {
   }
 
   updateProduct() {
-    console.log( this.product.categoria.id,)
     this.service.updateProduct(
       this.formProduct.get('producName').value,
       this.formProduct.get('descripcion').value,
