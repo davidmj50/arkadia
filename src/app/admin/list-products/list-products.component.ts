@@ -29,7 +29,7 @@ export class ListProductsComponent implements OnInit {
       console.log(resp);
       this.products = resp;
     }, error => {
-      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Atención',
       detail: 'Ha ocurrido un error al cargar los usuarios!'});
     });
   }
@@ -48,7 +48,7 @@ export class ListProductsComponent implements OnInit {
       this.ngOnInit();
     },
     error => {
-      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Atención',
       detail: 'Ha ocurrido un error al eliminar!'});
       console.log(error);
     }

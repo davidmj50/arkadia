@@ -15,6 +15,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoaderModule } from '../components/shared/loader/loader.module';
 import {ToastModule} from 'primeng/toast';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -22,7 +24,7 @@ import {ToastModule} from 'primeng/toast';
     FormsModule,
     ReactiveFormsModule,
     LoaderModule,
-    ToastModule
+    ToastModule,
   ],
   declarations: [
     ListProductsComponent,

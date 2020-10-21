@@ -33,7 +33,7 @@ export class ListCategoriesComponent implements OnInit {
       this.loading = true;
       this.categories = resp;
     }, error => {
-      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Atención',
       detail: 'Ha ocurrido un error al cargar las categorias!'});
     });
   }
@@ -52,7 +52,7 @@ export class ListCategoriesComponent implements OnInit {
       this.ngOnInit();
     },
     error => {
-      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Atención',
       detail: 'Ha ocurrido un error al eliminar!'});
       console.log(error);
     }

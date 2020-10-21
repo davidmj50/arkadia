@@ -29,10 +29,10 @@ export class AddUsersComponent implements OnInit {
       nombre: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       apellido: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
+      email: new FormControl('', [ Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
       direccion: new FormControl('', Validators.required),
       telefono: new FormControl('', Validators.required),
-      fecha_Nacimiento: new FormControl('', Validators.required)
+      fecha_Nacimiento: new FormControl('', Validators.required),
     });
   }
 
@@ -54,9 +54,9 @@ export class AddUsersComponent implements OnInit {
       this.loading = true;
       this.messageService.add({severity: 'success', key: 'toastAdmin', summary: 'Información',
       detail: 'El usuario se ha agregado correctamente!'});
-      //this.router.navigate(['/dashboard/admin/categories']);
+      // this.router.navigate(['/dashboard/admin/categories']);
     }, error => {
-      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Atención',
       detail: 'Ha ocurrido un error al guardar!'});
     });
   }

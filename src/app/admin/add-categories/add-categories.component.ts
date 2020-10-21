@@ -41,7 +41,7 @@ export class AddCategoriesComponent implements OnInit {
       this.messageService.add({severity:'success', key: 'toastAdmin',summary:'Información', detail:'La categoría se ha agregado correctamente!'});
       //this.router.navigate(['/dashboard/admin/categories']);
     }, error => {
-      this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Antención', detail:'Ha ocurrido un error al guardar!'});
+      this.messageService.add({severity:'error', key: 'toastAdmin',summary:'Atención', detail:'Ha ocurrido un error al guardar!'});
     });
   }
 

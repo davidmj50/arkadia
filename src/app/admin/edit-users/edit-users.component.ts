@@ -70,7 +70,7 @@ export class EditUsersComponent implements OnInit {
           });
         },
         error => {
-          this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+          this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Atención',
           detail: 'Ha ocurrido un error al cargar el usuario!'});
           console.log(error);
         }
@@ -102,7 +102,7 @@ export class EditUsersComponent implements OnInit {
         detail: 'El usuario se ha editado correctamente!'});
       },
       error => {
-        this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Antención',
+        this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Atención',
         detail: 'Ha ocurrido un error al editar!'});
         console.log(error);
       }
