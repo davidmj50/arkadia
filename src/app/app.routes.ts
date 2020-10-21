@@ -9,6 +9,8 @@ import { NofoundComponent } from './components/nofound/nofound.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ValidateUserloggedGuard } from './guards/validate-userlogged.guard';
+import { PurchasingComponent } from './components/purchasing/purchasing.component';
 
 const adminModule = () => import('./admin/admin.module').then(mod => mod.AdminModule);
 
@@ -22,17 +24,20 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent  },
     { path: 'nofound', component: NofoundComponent  },
     { path: 'cartShopping', component: ShoppingCartComponent  },
+    { path: 'purchase', component: PurchasingComponent  },
+
     { 
         path: 'dashboard', 
         component: DashboardComponent,
         data: { title: 'Inicio'},
+        canActivate: [ValidateUserloggedGuard],
         children: [
             { 
                 path: 'admin', 
                 loadChildren: adminModule
             },
             { 
-                path: 'nofound', 
+                path: 'dashboard/nofound', 
                 component: NofoundComponent
             },
             {

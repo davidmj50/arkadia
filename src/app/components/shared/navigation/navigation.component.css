@@ -65,3 +65,32 @@
     line-height: 1.2;
     color: #212529;
 }
+
+.points-user {
+    position: static;
+    display: inline-block;
+}
+
+.close-sesion{
+    display: block;
+}
+
+@media (min-width: 768px) {
+    
+    .points-user {
+        position: absolute;
+        left: 12rem;
+        top: 0.8rem;
+        border: 5px solid #ccc;
+        padding: 1rem;
+        border-radius: 50%;
+    }
+
+    .points-title {
+        position: absolute;
+        left: 12rem;
+        top: -0.3rem;
+        font-size: 0.8rem;
+        width: 4rem;
+    }
+}

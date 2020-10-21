@@ -11,6 +11,11 @@ import { IRole, Role } from 'src/app/models/Role.model';
   providedIn: 'root'
 })
 export class UsersService extends ServiceService<any> {
+  
+  
+  public validateUser(username: any, password: any): Observable<any> {
+    return this.executeGet(`/login/${username}/${password}`).pipe(map((resp: IUser) => resp));
+  }
 
   constructor(private http: HttpClient) {
     super();
@@ -81,6 +86,19 @@ export class UsersService extends ServiceService<any> {
     console.log(user);
     return this.update(user, path).pipe(map((resp: IUser) => resp));
   }
+  
+  public createUserCLient(email: string,
+    userName: string,
+    nombre: string,
+    apellido: string,
+    password: string,
+    direccion: string,
+    telefono: string,
+    fecha_Nacimiento: string) : Observable<any> {
+    let userModel: User = new User (email, password, userName, nombre, apellido ,direccion, telefono, fecha_Nacimiento, 2);
+    console.log(userModel);
+    return this.post(userModel,'');
+  }
 
   DeleteUser(idUser: string): Observable<IUser> {
     const path = `/${idUser}`;
@@ -88,3 +106,4 @@ export class UsersService extends ServiceService<any> {
   }
 
 }
+

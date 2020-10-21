@@ -22,8 +22,8 @@
                     </li>
                 </ul>
                 <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-info my-2 my-sm-0" style="color: #ffffff;" type="submit">Buscar</button>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" #searchProduct>
+<button class="btn btn-outline-info my-2 my-sm-0" style="color: #ffffff;" (click)="search(searchProduct.value)">Buscar</button>
                 </form>
             </div>
     </div>
@@ -49,15 +49,17 @@
                             <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
                             <div class="text">
                                 <span class="text-muted">Bienvenido</span>
-                                <div *ngIf="user else bannerUser">
+                                <div *ngIf="!user else bannerUser">
                                     <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Ingresar</a> |
                                     <a [routerLink]="['/register']" routerLinkActive="router-link-active" > Registrese</a>
                                 </div>
                             </div>
                             <ng-template #bannerUser>
                                 <div class="text">
-                                    <h6>Juan Carlos Rivera</h6>
-                                    <a (click)="closeSession()" style="text-decoration: underline; color: blue">Cerrar sesión</a>
+                                    <h6>{{user.nombre}} {{user.apellido}}</h6>
+                                    <span class="points-title">Tus puntos </span>
+                                    <span class="points-user">{{pointsUser}}</span>
+                                    <a class="close-sesion" (click)="closeSession()" style="text-decoration: underline; color: blue; cursor: pointer;">Cerrar sesión</a>
                                 </div>
                             </ng-template>
                         </div>
