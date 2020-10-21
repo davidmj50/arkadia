@@ -66,4 +66,27 @@ export class ProductsService extends ServiceService<IProduct> {
     return this.post(product, '').pipe(map((resp: IProduct) => resp));
   }
 
+  public updateProduct(
+    producName: string,
+      descripcion: string,
+      precio: number,
+      stock: number,
+      imagen: string,
+      idCategory: number,
+      idproduct: string
+
+  ): Observable<IProduct> {
+      const product: Product = new Product(
+        producName,
+        descripcion,
+        precio,
+        stock,
+        imagen,
+        idCategory
+    );
+    const path = `/${idproduct}`;
+    console.log(product);
+    return this.update(product, path).pipe(map((resp: IProduct) => resp));
+  }
+
 }

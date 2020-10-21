@@ -20,7 +20,6 @@
                 <option value="">-- Seleccione una categoria --</option>
                 <option *ngFor="let category of categories" [value]="category.id_Categoria">{{category.nombre_Categoria}}</option>
               </select>
-              <p>You selected: {{selected}}</p>
            </div>
             <div class="form-group">
               <label for="descripcion">Descripción</label>

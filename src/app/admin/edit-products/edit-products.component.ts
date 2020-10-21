@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/Impl/products.service';
 import { ActivatedRoute } from '@angular/router';
 import { finalize } from 'rxjs/operators';
-import { IProduct } from 'src/app/models/Product.model';
+import { IProduct } from 'src/app/models/Product2.model';
 import {
   FormGroup,
   Validators,
@@ -11,7 +11,6 @@ import {
 } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { CategoriesService } from 'src/app/services/Impl/categories.service';
-import { SelectItem } from 'primeng/api';
 import { ICategory, Category } from 'src/app/models/Category.model';
 
 @Component({
@@ -25,7 +24,7 @@ export class EditProductsComponent implements OnInit {
   public product: IProduct;
   public loading = false;
   public formProduct: FormGroup;
-  public listCategory: SelectItem[];
+  public categories: ICategory[] = [];
   constructor(
     private service: ProductsService,
     private categoryservice: CategoriesService,
@@ -35,15 +34,15 @@ export class EditProductsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loadCategories();
     this.formProduct = this.formbuilder.group({
       producName: new FormControl('', Validators.required),
       descripcion: new FormControl('', Validators.required),
-      precio: new FormControl('', Validators.required),
-      stock: new FormControl('', Validators.required),
+      precio: new FormControl('', [Validators.required, Validators.min(1)]),
+      stock: new FormControl('', [Validators.required, Validators.min(0)]),
       imagen: new FormControl('', Validators.required),
     });
     this.idProduct = this.route.snapshot.paramMap.get('id');
-    this.listCategory = [{ label: '-- Seleccione la categoria -- ', value: '' }];
     this.getProduct();
   }
 
@@ -75,28 +74,31 @@ export class EditProductsComponent implements OnInit {
       );
   }
 
-  public getCategories(): void {
-    this.categoryservice.getCategories().subscribe(
-      (categories: any) => {
-        categories.Result.forEach((category: Category) => {
-          this.listCategory = [...this.listCategory, {
-            label: category.nombre_Categoria,
-            value: category.id
-          }];
-        });
+  public loadCategories() {
+    this.categoryservice.getCategories().pipe(
+      finalize(() => {
         this.loading = false;
+      })
+    ).subscribe((resp: ICategory[]) => {
+      this.loading = true;
+      this.categories = resp;
+    }, error => {
+      this.messageService.add({severity: 'error', key: 'toastAdmin', summary: 'Atención',
+      detail: 'Ha ocurrido un error al cargar las categorias!'});
     });
   }
 
-  updateUser() {
-    this.service.updateUser(
+  updateProduct() {
+    console.log( this.product.categoria.id,)
+    this.service.updateProduct(
       this.formProduct.get('producName').value,
       this.formProduct.get('descripcion').value,
       this.formProduct.get('precio').value,
       this.formProduct.get('stock').value,
       this.formProduct.get('imagen').value,
+      this.product.categoria.id_Categoria,
       this.idProduct,
-      1)
+      )
     .pipe(
       finalize(() => {
         this.loading = false;
@@ -116,5 +118,4 @@ export class EditProductsComponent implements OnInit {
       }
     );
   }
-
 }
