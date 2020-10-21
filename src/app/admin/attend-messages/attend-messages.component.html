@@ -1,0 +1,33 @@
+<app-loader [loading]="loading"></app-loader>
+<p-toast key="toastAdmin" position="top-right" class="custom-toast"></p-toast>
+<div class="card mt-3">
+    <div class="card-header">
+      <div class="d-flex justify-content-start p-1">
+        <button [routerLink]="['/dashboard/admin']" class="btn btn-primary"><i
+          class="fas fa-arrow-left"></i></button>
+            <h3 class="ml-3">Gestionar mensaje</h3>
+          </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+          <form action="" [formGroup]="formContact" (ngSubmit)="setContact()">
+            <div class="form-group">
+              <label for="name">Atendido</label>
+              <div class="custom-control custom-switch">
+                  <input type="checkbox" formControlName="atendido" class="custom-control-input">
+                  <label class="custom-control-label" for="atendido"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Email</label>
+                <input formControlName="email" class="form-control" readonly>
+              </div>
+            <div class="form-group">
+              <label for="description">Descripción</label>
+              <textarea formControlName="mensaje" class="form-control" readonly></textarea>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!formContact.valid">Guardar</button>
+          </form>
+        </div>
+      </div>
+</div> 

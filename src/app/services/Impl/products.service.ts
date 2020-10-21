@@ -10,8 +10,9 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService extends ServiceService<IProduct> {
 
+export class ProductsService extends ServiceService<IProduct>{
+  
   public getProduct(idProduct: number) {
     const path = `/${idProduct}`;
     return this.executeGet(path).pipe(map((resp: IProduct) => resp));
@@ -36,6 +37,11 @@ export class ProductsService extends ServiceService<IProduct> {
     return this.executeGet(path).pipe(map((resp: IProduct[]) => resp));
   }
 
+
+  public getProductsSearching(keyword: string) {
+    const path = `/producsearch/${keyword}`;
+    return this.executeGet(path).pipe(map((resp: IProduct[]) => resp));
+  }
    public DeleteProduct(idProduct: string): Observable<IProduct> {
     const path = `/${idProduct}`;
     return this.executeDelete(path).pipe(map((resp: IProduct) => resp));
